@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06_CSS_레이아웃</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/09743b710b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h2>레이아웃</h2>
+    <p>float(띄우다) : 부모공간에서 좌측으로 가로정렬시킬 것이다. </p>
+    <p>display: 
+        //block / inline / inline-block / none 
+        // table(부모) / table-cell(자식) 
+        //flex(부모가 자식의 위치를 변경시켜 주는 명령자)
+    </p>
+    <p>position : static, relative, absolute, fixed</p>
+
+    <h3>float : left / right / none => 포스트잍</h3>
+    <div class="float_left">
+        <ul>
+            <li><a href="">1_Menu</a></li>
+            <li><a href="">2_Menu</a></li>
+            <li><a href="">3_Menu</a></li>
+            <li><a href="">4_Menu</a></li>
+        </ul>
+    </div>
+    <div class="float_right">
+        <ul>
+            <li><a href="">1_Menu</a></li>
+            <li><a href="">2_Menu</a></li>
+            <li><a href="">3_Menu</a></li>
+            <li><a href="">4_Menu</a></li>
+        </ul>
+    </div>
+
+    <hr />
+    <header id="adidas_header">
+        <div class="logo">
+            <a href="">
+                <img src="./img/Adidas-Logo-Free-PNG-Image.png" alt="아디다스 로고">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="">New Arrivals</a></li>
+                <li><a href="">Men</a></li>
+                <li><a href="">Women</a></li>
+                <li><a href="">Kids</a></li>
+                <li><a href="">Event</a></li>
+            </ul>
+        </nav>
+    </header>
+    <p>a</p>
+    <p>b</p>
+    <p>c</p>
+
+    <hr />
+
+    <h3>display: block | inline | inline-block | none</h3>
+    <section id="diplay">
+        <div class="img-box bg1"></div>
+        <div class="img-box bg2"></div>
+        <div class="img-box bg3"></div>
+        <div class="img-box bg4"></div>
+    </section>
+
+    <hr />
+
+    <section id="display-center">
+        <div class="wrap">
+            <div class="img-box bg1"></div>
+            <div class="img-box bg2"></div>
+            <div class="img-box bg3"></div>
+            <div class="img-box bg4"></div>
+        </div>
+    </section>
+
+    <h3>display: table -> table-cell </h3>
+    <div id="table-space">
+        <h4>반려견 동행하기</h4>
+    </div>
+
+
+    <h3>display: flex => 부모가 자식의 배치를 지정(가로배치, 세로배치)</h3>
+
+    <h4>부모에 의한 통제</h4>
+    <div id="flex1">
+        <div class="item">item1</div>
+        <div class="item">item2</div>
+        <div class="item">item3</div>
+        <div class="item">item4</div>
+    </div>
+
+    <div class="flex-header1">
+        <div class="wrap">
+            <div class="logo">
+                <a href="">
+                    <img src="./img/Adidas-Logo-Free-PNG-Image.png" alt="">
+                </a>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="">MEN</a></li>
+                    <li><a href="">WOMEN</a></li>
+                    <li><a href="">KID</a></li>
+                    <li><a href="">EVENT</a></li>
+                </ul>
+            </div>
+            <div class="sign">
+                <ul>
+                    <li><a href="">로그인</a></li>
+                    <li><a href="">회원가입</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h4>2행 이상의 콘텐츠 공간 구성시</h4>
+    <div class="flex-content1">
+        <div class="wrap">
+            <div class="item">item1</div>
+            <div class="item">item2</div>
+            <div class="item">item3</div>
+            <div class="item">item4</div>
+            <div class="item">item5</div>
+            <div class="item">item6</div>
+            <div class="item">item7</div>
+            <div class="item">item8</div>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="flex-content2">
+        <div class="wrap">
+            <div class="item">item1</div>
+            <div class="item">item2</div>
+            <div class="item">item3</div>
+            <div class="item">item4</div>
+            <div class="item">item5</div>
+            <div class="item">item6</div>
+            <div class="item">item7</div>
+            <div class="item">item8</div>
+        </div>
+    </div>
+
+    <h4>자식에 대한 부분으로 flex를 통제시</h4>
+    <div class="flex-child1">
+        <div class="item item1">item1</div>
+        <div class="item item2">item2</div>
+        <div class="item item3">item3</div>
+        <div class="item item4">item4</div>
+    </div>
+
+    <hr />
+
+    <div class="flex-child2">
+        <div class="item item1">item1</div>
+        <div class="item item2">item2</div>
+        <div class="item item3">item3</div>
+        <div class="item item4">item4</div>
+    </div>
+
+
+    <h2>position</h2>
+    <h3>
+        static : 일반적인 적층 개념 - 작성하지 않아도 기본값<br />
+        relative : 상대적인 좌표값을 설정
+        absolute : 선언된 영역을 절대좌표의 위치에 배치 가능
+        fixed : 현재 보여지는 브라우저의 공간을 기준으로 고정시킴
+    </h3>
+    <h3>
+        css에 z-index 값(정수)을 통해 전면부나 후면부로 배치가능
+    </h3>
+
+    <h4>position: relative;</h4>
+    <div class="po_static">static - space</div>
+    <div class="po_relative">relative - space</div>
+
+    <h4>position: absolute;</h4>
+    <div class="po_absolute_space">
+        <div class="absolute1">absolute1</div>
+        <div class="absolute2">absolute2</div>
+    </div>
+
+    <div class="ad_photo">
+        <img src="./img/awards.png" alt="">
+    </div>
+
+    <h4>position: fixed;</h4>
+    <div class="po_fixed">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

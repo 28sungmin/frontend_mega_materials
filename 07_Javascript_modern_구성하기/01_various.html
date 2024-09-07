@@ -1,0 +1,226 @@
+<script>
+    //ES6 - ECMA SCRIPT 6 => 2015년 6월을 기준으로 새로운 자바스크립트 형태를 발표
+    //var => let, const / 2017년 class 함수 + 생성자라는 키워드 값을 도입하여고도화된 스클립트로 변화
+    //클래스 개념 도입 : 예시, '동물'이라는 집단객체 내에 "원숭이, 토기..." 호출 시킬 수 있는 상속이라는 개념도 도입 + interface라는 선언도 도입
+    //객체 라는 개념도 확장성을 갖춤
+    //비동기처리 방식 -> async ~ await (API : 데이터를 주고받을 수 있는 호출 부호)
+    //콜백지옥에서 -> promise ~ then
+
+    //#1. var, let, const 비교
+    //{ } : 스코프(scope) - 하나의 메모리 공간(block)
+    //if(조건식){실행문}
+    //function(){실행문}
+    //객체 = {key1: value1, key2: value2, ...}
+
+    //**변수 var**//
+    //조건식에서 변수선언
+    var msg1 = "hello";  //전역변수
+    if(true){
+        var msg1 = "Good Luck";  //지역변수
+        console.log(msg1);  //"Good Luck"
+    }
+    console.log(msg1);  //"Good Luck" ==> 왜 지역변수의 값이 나오는가?
+
+    //함수에서 변수선언
+    var msg2 = "nice";  //전역변수
+    function printOut(){
+        var msg2 = "thank you";  //지역변수
+        console.log(msg2); //"thank you"
+    }
+    printOut();
+    console.log(msg2); //"nice"
+
+    //{} 스코프 또는 블록 메모리 공간에서 역할과 위치마다 선언된 값을 일정하게 갖고 오지 못함 => let 변수선언이 발생
+
+    //**변수선언 let**//
+    //조건식에서 변수선언
+    let msg3 = "hello"; //전역변수
+    if(true){
+        let msg3 = "Good Luck"; //지역변수
+        console.log(msg3); //"Good Luck"
+    }
+    console.log(msg3); //"hello"
+
+    //함수에서 변수선언
+    let msg4 = "nice"; //전역변수
+    function printOut2(){
+        let msg4 = "thank"; //지역변수
+        console.log(msg4); //"thank"
+    }
+    printOut2();
+    console.log(msg4); //"nice"
+
+    //**변수선언 const**//
+    //조건식에서 변수선언
+    const msg5 = "안녕"; //전역변수
+    if(true){
+        const msg5 = "하이"; //지역변수
+        console.log(msg5); //"하이"
+    }
+    console.log(msg5); //"안녕"
+
+    //함수에서 변수선언
+    const msg6 = "nice"; //전역변수
+    function printOut3(){
+        const msg6 = "thank"; //지역변수
+        console.log(msg6); //"thank"
+    }
+    printOut3();
+    console.log(msg6); //"nice"
+
+    //var의 문제 사례
+    for(var i = 0; i < 10; i++){
+
+    }
+    console.log(i);  //10 => 영역 밖으로 샌다.
+    
+    for(let j = 0; j < 10; j++){
+
+    }
+    // console.log(j);  //j is not defined
+
+
+    //#2. var와 let의 상세비교
+    if(true){
+        var age1 = 20;
+        console.log(`1. 당신의 나이는 : ${age1}`);
+    }
+    console.log(`2. 당신의 나이는 : ${age1}`);
+
+    if(true){
+        let age2 = 25;
+        console.log(`1. 당신의 나이는 : ${age2}`);
+    }
+    // console.log(`2. 당신의 나이는 : ${age2}`);
+
+    //var의 문제점
+    var member = "홍길동";
+    console.log(member);
+    var member = "마동석";
+    console.log(member);
+
+
+    let mem1 = "홍길동";
+    let mem2 = "마동석";
+    //Cannot redeclare block-scoped variable 'mem1'
+
+    const mem3 = "홍길동";
+    const mem4 = "마동석";
+    // Cannot redeclare block-scoped variable 'mem3'
+
+    //#3. const 상세비교(불변변수) //코드 상에서 비중은 let은 10% 이하 / const 90% 이상
+    let number0 = 10; //(let 가변변수 : 값을 변경 할 수 있는 변수)
+    number0 = 30;
+    console.log(number0); //30
+
+    const number1 = 20; //(const 불변변수 : 값을 변경 할 수 없는 변수)
+    // number1 = 40;
+    // console.log(number1); //01_various.html:117 Uncaught TypeError: Assignment to constant variable => 값의 전체를 변경할 수 없음
+
+    //배열 데이터의 경우, 내부의 값이 추가되거나 또는 제거되는 경우 사용 가능
+    const number2 = [25, 30, 35];
+    number2.push(40);
+    console.log(number2); //[25, 30, 35, 40]
+    //number2 = [12, 24, 25]; //배열 변수라고 하더라도 케이스[]를 통째로 바꾸는 것이 불가능함
+
+    //객체 데이터의 경우, 내부의 값이 추가되거나 또는 제거되는 경우 사용 가능
+    const dessert = {
+        keyword: "빙그레 바나나 우유",
+        category: "간식"
+    }
+    dessert.target = "홍길동";
+    console.log(dessert); //{keyword: '빙그레 바나나 우유', category: '간식', target: '홍길동'}
+    // dessert = {keyword: "포테이토칩"} //객체라도 객체 전체의 케이스{}로 통째로 바꾸는 것이 불가능함
+
+    //#4. 불변변수 const에서 사용가능 한 내장함수
+    const arr1 = [2, 3, 4, 5];
+    arr1.unshift(1);
+    console.log(arr1); //[1, 2, 3, 4, 5]
+
+    const obj1 = {};
+    Object.assign(obj1, {new0: "BTS"}, {new1: "아이유"});
+    console.log(obj1); //{new0: 'BTS', new1: '아이유'}
+
+    Object.assign(obj1, {new0: "세븐틴"});
+    console.log(obj1); //{new0: '세븐틴', new1: '아이유'}
+    //assign(객체변수명, {신규 key1: 신규 value1}, {신규 key2: 신규 value2}, ...) : 객체 내부에 새로운 값을 할당한다.
+    //assign(객체변수명, {기존 key1: 신규 value1}) : 기존에 존재하는 key1에 새로운 value1으로 교체 가능하다.
+
+    //실습문제 : assign()
+    const hero = {
+        name: "토마토 재배자",
+        device: "호미",
+        cloth: "일반 가죽옷"
+    };
+    //assign() 내장함수를 활용하여 객체(hero)의 속성 device를 "곡괭이"로 변경, cloth를 "린넨옷"으로 변경, level을 2로 추가한다.
+    Object.assign(hero, {device: "곡괭이"}, {cloth: "린넨옷"}, {level: 2})
+    console.log(hero); //{name: '토마토 재배자', device: '곡괭이', cloth: '린넨옷', level: 2}
+
+    //객체의 새로운 key와 value를 추가하거나 교체시
+    hero["hp"] = 100;
+    console.log(hero);  //{name: '토마토 재배자', device: '곡괭이', cloth: '린넨옷', level: 2, hp: 100}
+
+    hero.ep = 50;
+    console.log(hero); //{name: '토마토 재배자', device: '곡괭이', cloth: '린넨옷', level: 2, hp: 100, ep: 50}
+
+    //객체의 속성 하나를 삭제
+    delete hero.cloth;
+    console.log(hero); //{name: '토마토 재배자', device: '곡괭이', level: 2, hp: 100, ep: 50}
+
+    //#4. 불변변수 const + 전개연산자(...변수명) : 나열형 자료(배열, 객체)를 추출하거나 연결시 사용
+    const arr3 = [0];
+    const arr4 = arr3.concat(1);
+    console.log(arr4); //[0, 1] => 기존 배열 변수명.concat(새로운 배열 데이터) : 두가지 배열을 결합시키겠다는 의미
+
+    const arr5 = [...arr4, 2, 3];
+    console.log(arr5); //[0, 1, 2, 3]  //기존 데이터에 새로운 데이터를 추가하는 과정
+
+    const arr5_1 = arr4.concat([2, 3]);
+    console.log(arr5_1); //[0, 1, 2, 3]
+
+    const arr6 = arr5.slice(1, 2);
+    console.log(arr6);
+
+    const [ a1, a2, a3, a4 ] = arr5; //[0, 1, 2, 3]
+    console.log(a1); //0
+    console.log(a2); //1
+    console.log(a3); //2
+    console.log(a4); //3
+
+    const [ idx0, ...spareArr ] = arr5; //[0, 1, 2, 3]
+    console.log(idx0); //0
+    console.log(spareArr); //[1, 2, 3]
+
+    //[실습] 전개연산자를 활용하여 마지막에 위치한 [3]으로 값을 추출하시오.(arr5변수를 활용할 것)
+    const [ id0, id1, id2, ...id3 ] = arr5; //[0, 1, 2, 3]
+    console.log(...id3); //3
+    console.log(id3); //[3]
+
+    // const [...spare, id_3] = arr5;  //변수명으로 전개연산자 사용시 첫번째 자리에 넣을 수 없음. => 나머지 데이터를 담는 공간 역할을 하기 때문임 //Uncaught SyntaxError: Rest element must be last element
+
+    //객체인 경우 전개연산자의 역할
+    const obj3 = {name: "홍길동", age: 20, region: "서울"}
+    const obj4 = {...obj3, context: "아버지를 아버지라...", age: 30}
+    console.log(obj4); //{name: '홍길동', age: 30, region: '서울', context: '아버지를 아버지라...'}
+    const { context, ...obj5 } = obj4;
+    console.log(context); //아버지를 아버지라...
+    console.log(obj5); //{name: '홍길동', age: 30, region: '서울'}
+
+
+    //[실습] 전개연산자를 활용하여 내부 데이터를 변경(객체 내의 key명은 동일한 경우가 없음)
+    const marvel1 = {name: "헐크-변신전", power: 500, region: "뉴욕"}
+    const marvel2 = {...marvel1, name: "헐크-변신후", power: 1000}
+    console.log(marvel2); //{name: "헐크-변신후", power: 1000, region: "뉴욕"}
+
+    //이어서 marvel2를 기준으로 power라는 속성을 제외하고 {name: "헐크-변신후", region: "뉴욕"}로 콘솔창에 출력
+    const {power, ...marvel3} = marvel2; //{name: "헐크-변신후", power: 1000, region: "뉴욕"}
+    console.log(power); //1000
+    console.log(marvel3); //{name: '헐크-변신후', region: '뉴욕'}
+
+    /*
+    기본적으로 const 사용을 추천
+    재할당이 반드시 필요한 곳에만 let 사용을 추천(for(let i = 0; i < 10; i++){})
+    var는 ES6문법을 적용한 문서상에서는 let, const와 혼용해서 사용하지 말것
+    */
+
+</script>

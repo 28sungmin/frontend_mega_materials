@@ -1,0 +1,73 @@
+/*common.css*/
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+header {
+  background-color: #333;
+  padding: 0 10px;
+  height: 60px;
+}
+header .top {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .top .logo {
+  color: #fff;
+  height: 100%;
+}
+header .top .logo h3 {
+  line-height: 60px;
+}
+header .top ul {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  column-gap: 10px;
+}
+header .top ul li {
+}
+header .top ul li a {
+  color: #ddd;
+}
+header .top ul li:hover a {
+  color: #fff;
+}
+header .top ul li p {
+  color: #ffa;
+  font-weight: bold;
+}
+
+section {
+  height: calc(100vh - 60px);
+  color: #555;
+  background-color: #aff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

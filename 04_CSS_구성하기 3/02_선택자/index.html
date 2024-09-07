@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>02_CSS_선택자_수정</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <h2>선택자</h2>
+    <h3>전체 선택자(*) : 문서상에 존재하는 모든 태그에 스타일을 적용</h3>
+
+    <h3>
+      태그 선택자(요소명) : 각괄호(<요소명>) 내부의 첫 선언 요소명을 기준으로
+      스타일 적용시 사용
+    </h3>
+
+    <h3>
+      클래스 선택자(.클래스명) : 태그 내부에 클래스(class)속성을 추가하여 그
+      속성이 담고 있는 속성값을 기준으로 스타일을 선언하고자 할 때 사용
+    </h3>
+    <div class="class_selector">
+      <p class="num_1">바람과함께 사라지다</p>
+      <p class="hit">아몬드 봉봉</p>
+      <p class="fav_ice">엄마는 외계인</p>
+      <p class="select_ice hit">민트초코</p>
+      <p class="슈팅 스타">슈팅스타</p>
+    </div>
+    <h4>클래스 선택자 선언시 주의사항</h4>
+    <p>
+      1. 클래스명을 선언시 첫 글자는 숫자 불가(단, 영문 이후에 포함되는 숫자는
+      상관없음)
+    </p>
+    <p>
+      2. 클래스명은 복수의 클래스명으로 선언이 가능(복수 선언시, 반드시 한칸을
+      띄우고 작성한다.)
+    </p>
+    <p>
+      3. 클래스명 선언시, 반드시 의미있는 이름으로 지어주는 것이 중요(인수인계시
+      중요)
+    </p>
+    <p>4. 클래스명으로 두 단어를 연결시, 단어_단어 또는 wordWord</p>
+    <p>5. 클래스명은 재활용이 가능(<->아이디 선택자)</p>
+
+    <h3>
+      아이디 선택자(#아이디명) : 태그 내부에 id라는 속성을 선언하여 아이디명을
+      기준으로 스타일을 적용하고자 할 때 사용
+    </h3>
+
+    <div id="id_selector">
+      <p id="txt_id">산타페</p>
+      <p id="id_2">아반떼</p>
+      <p id="car">카니발</p>
+    </div>
+    <h4>아이디 선택자 선언시 주의사항</h4>
+    <p>
+      1. 아이디명을 선언시, 첫 글자는 숫자 불가(단, 영문 이후에 포함되는 숫자는
+      상관없음)
+    </p>
+    <p>2. 아이디명은 복수의 아이디명의 선언이 불가능</p>
+    <p>
+      3. 아이디명 선언시, 반드시 의미있는 이름으로 지어주는 것이 중요(인수인계시
+      중요)
+    </p>
+    <p>4. 아이디명으로 두 단어를 연결시, 단어_단어 또는 wordWord</p>
+    <p>
+      5. 아이디명은 재활용 불가능(CSS상에서는 스타일 적용이 되나, JS에서는
+      첫번째 선언된 아이디명에만 동적 적용이 가능)
+    </p>
+    <p>
+      6. 아이디 선택자는 구조상 큰 규모를 대상으로 작성하는 것이 좋다. (명시도
+      부분에서 1개의 아이디당 100점)
+    </p>
+
+    <h3>자식선택자(부모 > 자식) / 자손선택자(조상 후손)</h3>
+    <ul class="menu">
+      <li>
+        <a href="">회사소개</a>
+      </li>
+      <li>
+        <a href="">경영소개</a>
+      </li>
+      <li>
+        <a href="">제품소개</a>
+        <ul>
+          <li><a class="detail" href="">기계제품</a></li>
+          <li><a href="">화학제품</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="">고객센터</a>
+      </li>
+    </ul>
+
+    <h3>
+      인접선택자(형 + 동생) : 문서상 형제 서열이 낮은 순으로 접근할 때 사용
+    </h3>
+    <ul class="brother_selector">
+      <li class="cur_page">
+        <a href="">About</a>
+      </li>
+      <li>
+        <a href="">Project</a>
+      </li>
+      <li class="target_page">
+        <a href="">Portfolio</a>
+      </li>
+      <li>
+        <a href="">Contact</a>
+      </li>
+    </ul>
+
+    <h3>
+      내림 형제 선택자(형 ~ 동생) : 형제간 서열이 낮은 어딘가의 동생을 선택할 때
+      사용
+    </h3>
+    <ul class="brother_selector2">
+      <li class="current">
+        <a href="">브랜드</a>
+      </li>
+      <li>
+        <a href="">주요메뉴</a>
+      </li>
+      <li class="partner">
+        <a href="">파트너쉽</a>
+      </li>
+      <li>
+        <a href="">이벤트</a>
+      </li>
+    </ul>
+
+    <h3>
+      복수(병렬) 선택자 (선택자1, 선택자2, ...) : 한번에 여러가지를 선택하여
+      동일한 스타일 적용시 사용
+    </h3>
+    <div class="several_selector">
+      <p>HTML5</p>
+      <span>CSS3</span>
+      <h5>Javascript</h5>
+    </div>
+    <h5 class="target_lang">React</h5>
+    <p>
+      병렬선택자 작성시, 상하위 개념을 적용시켜 주어야 타겟팅된 구조만 스타일을
+      적용할 수 있음
+    </p>
+
+    <h3>가상 공간 선택자(선택자::before / 선택자::after)</h3>
+    <p class="virtual_space">레시피</p>
+    <p>
+      1차 코딩에서는 가급적이면 사용하지말고 추후 급한 요구사항 처리시 활용하면
+      좋음
+    </p>
+
+    <h3>
+      마우스 오버 관련 선택자(선택자:hover) : 마우스가 영역내부로 진입했을 때
+      스타일 변경시 사용
+    </h3>
+    <div class="change_bg"></div>
+
+    <ul class="com_menu">
+      <li><a href="">회사소개</a></li>
+      <li><a href="">오뚜기 제품</a></li>
+      <li><a href="">O' Kitchen</a></li>
+      <li><a href="">홍보센터</a></li>
+    </ul>
+
+    <h3>링크 관련 가상 행동 선택자</h3>
+    <a class="a_focus" href="">리스트항목 바로가기</a>
+    <a class="a_active" href="">active 활성화</a>
+
+    <h3>
+      속성(attribute) 선택자 : 태그 내부의 속성을 선택하여 스타일 적용시 사용
+    </h3>
+    <div class="attr_selector1">
+      <div><input type="text" placeholder="아이디 입력" /></div>
+      <div><input type="password" placeholder="패스워드 입력" /></div>
+      <div><input type="email" placeholder="이메일 입력" /></div>
+    </div>
+    <div class="attr_selector2">
+      <p class="dessert food">Bread</p>
+      <p class="food dessert tea" ajw>Coffee</p>
+      <p class="diet dishes">Steak</p>
+      <p class="cheeze diet">Pizza</p>
+    </div>
+
+    <h3>수도 선택자(나는 몇번째 자식인가?)</h3>
+    <ul class="nth_selector">
+      <!-- <h3>나모웹에디터</h3> -->
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>Javascript</li>
+      <li>SQL</li>
+      <li>React</li>
+    </ul>
+
+    <h3>
+      종속선택자 - 각 단계별로 요소를 선택하는 과정에서 필요한 구분자를 모두
+      가져와서 선택자에 담아서 사용한다.
+    </h3>
+    <div class="contain_selector1">
+      <p>아이폰15</p>
+      <p class="myFav">갤럭시24</p>
+      <p>아이패드</p>
+    </div>
+
+    <div class="contain_ex">
+      <div>Section-1</div>
+      <div id="space" class="place">Section-2</div>
+      <div>Section-3</div>
+      <div>Section-4</div>
+    </div>
+
+    <h3>
+      CSS 선택자의 명시도(점수부여법) - 대규모 프로젝트에서는 매우 중요한 부분임
+    </h3>
+    <h4>아이디 : 100점</h4>
+    <h4>클래스 : 10점</h4>
+    <h4>태그(요소) : 1점</h4>
+    <div id="css_score">
+      <p id="score" class="level">명시도에 의한 색상변환</p>
+    </div>
+
+    <div id="section">
+      <div class="part">
+        <p id="txt_test" class="txt_cont">문장 명시도 테스트</p>
+      </div>
+    </div>
+  </body>
+</html>

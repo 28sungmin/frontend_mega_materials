@@ -1,0 +1,184 @@
+//components/_common.scss
+header {
+    background-color: $black;
+    .wrap {
+        width: 1200px;
+        // background-color: $gray-9;
+        .logo {
+            a {
+                img{
+                    display: block;
+                }
+            }
+        }
+        nav{
+            ul{
+                li{
+                    a{
+                        text-transform: uppercase;
+                        color: $gray-7;
+                        &:hover{
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        }
+        .myLink{
+            ul{
+                li{
+                    button{
+                        border: none;
+                        background-color: transparent;
+                        img{
+                            display: block;
+                            height: 24px;
+                            filter: invert(80%);
+                        }
+                        &:hover{
+                            img{
+                                filter: invert(100%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer{
+    background-image: url(../../images/footer_bg.jpg);
+    background-size: cover;
+    background-position: 50% 50%;
+    position: relative;
+    overflow: hidden;
+    .bg{
+        background-color: rgba(0, 0, 0, .75);
+        .logo{
+            position: absolute;
+            button{
+                background-color: transparent;
+                border: none;
+                img{
+                    width: 100px;
+                    height: 50px;
+                    filter:brightness(0) invert(1);
+                }
+            }
+        }
+        .puma{
+            position: absolute;
+            bottom: -80px;
+            right: -60px;
+            img{
+                width: 300px;
+            }
+        }
+        .wrap{
+            width: 1200px;
+            margin: 0 auto;
+            .foot_link{
+                > li{
+                  width: calc(50% - 20px);
+                  margin: 0 10px;  
+                  h3{
+                    font-size: $fs-16;
+                    font-weight: bold;
+                    color: $white;
+                    text-transform: uppercase;
+                    line-height: 30px;
+                    border-bottom: 1px solid $white;
+                }
+                ul{
+                    li{
+                        width: calc(50% - 20px);
+                        a{
+                            color: $gray-a;
+                            &:hover{
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+                }
+            }
+        }
+        .copy{
+            text-align: center;
+            font-size: $fs-14;
+            font-weight: 300;
+            color: $gray-c;
+            line-height: 20px;
+        }
+    }
+}
+.popBg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+.popWrap{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: auto;
+    background-color: $white;
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.5);
+    transform: translate(-50%, -50%);
+    z-index: 6;
+
+    .popContext{
+        width: 100%;
+        height: auto;
+
+        .bannerVideo{
+            position: relative;
+            width: 100%;
+            width: 600px;
+            height: 400px;
+            overflow: hidden;
+
+            .banner_space{
+                position: absolute;
+                width: 140%;
+                height: 140%;
+                display: block;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            &:after{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.5);
+            }
+        }
+    }
+
+    .bottomBtn{
+        padding-top: 20px;
+        text-align: center;
+        .closePopBtn{
+            border: none;
+            background-color: $red;
+            color: $white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            &:hover{
+                background-color: $red-h;
+            }
+        }
+    }
+}
+

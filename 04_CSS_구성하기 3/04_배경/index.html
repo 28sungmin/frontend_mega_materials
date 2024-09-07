@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>04_CSS_배경</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <h3>
+      배경색상(background-color) : 문자(red, blue,...) / 16진수 코드(#ff0000 ->
+      #f00) / hsl(색상(deg), 채도(%), 명도(%)) / rgba(255, 0, 0, 1)
+    </h3>
+
+    <h3>배경이미지(background-image:url(이미지의 파일 또는 경로))</h3>
+    <div class="bg_image_01"></div>
+
+    <h3>배경 위치선언(background-position)</h3>
+    <h4>수평위치선언 : left, center, right, 0~100%, px</h4>
+    <h4>수직위치선언 : top, center, bottom, 0~100%, px</h4>
+    <div class="bg_image_02"></div>
+
+    <h3>배경 크기조정(background-size)</h3>
+    <h4>가로사이즈 세로사이즈 / cover / contain</h4>
+    <div class="bg_image_03"></div>
+    <div class="bg_image_04"></div>
+
+    <h3>배경의 패턴 유무(background-repeat)</h3>
+    <div class="bg_image_05"></div>
+
+    <h3>parallax 효과부여(background-attach) : scroll(기본값) / fixed</h3>
+    <div class="bg_attach"></div>
+
+    <h3>통합 background</h3>
+    <p>
+      background : 배경색상 배경이미지 반복여부 배경붙이기 배경위치/배경사이즈
+    </p>
+    <div class="total_bg"></div>
+
+    <h3>부모 배경과 자식배경의 배치 + 중앙에 글자 배치</h3>
+    <div class="parent_bg">
+      <div class="child_bg">
+        <h2>Have a good day</h2>
+      </div>
+    </div>
+  </body>
+</html>

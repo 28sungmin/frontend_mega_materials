@@ -1,0 +1,36 @@
+<script>
+    /*
+    [async / await 의 개요]
+    async / await
+    #1. async라는 비동기 함수로 지정
+    #2. await는 독립적인 속성으로 사용할 수는 없음. 반드시 상단에서 async가 존재해야함
+    #3. await 문 내부에서는 promise 하는 함수를 작성할 수 있음
+    #4. await 는 비동기 작업이 종료될 때까지 멈추고 종료되면 결과값을 리턴함
+    #5. resolve에 대한 결과값을 받고자 한다면 then() 이라는 메서드를 통해 받을 수 있음
+    */
+    async function proceed(){
+        const data1 = await new Promise(resolve => {
+            setTimeout(() => {
+                resolve("1번 작업 완료");
+            }, 1000)
+        })
+        console.log(data1);
+
+        const data2 = await new Promise(resolve => {
+            setTimeout(() => {
+                resolve("2번 작업 완료");
+            }, 2000)
+        })
+        console.log(data2);
+
+        const data3 = await new Promise(resolve => {
+            setTimeout(() => {
+                resolve("3번 작업 완료");
+            }, 3000)
+        })
+        console.log(data3);
+
+    }
+    proceed();
+
+</script>

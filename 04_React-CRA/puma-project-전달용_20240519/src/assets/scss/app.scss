@@ -1,0 +1,8 @@
+//app.scss : scss 파일을 모두 통합하는 곳
+@import './base/reset';
+@import './base/box';
+@import './base/variables';
+@import './components/common';
+@import './components/main';
+
+

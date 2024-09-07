@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03_CSS_폰트</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <h3>폰트 서체의 적용</h3>
+    <h4>1. 외부에서 서체를 가져온다.</h4>
+    <p class="external_font">외부폰트 적용</p>
+
+    <h4>2. 자체 서버에 저장된 폰트를 변환시킨 후 사용</h4>
+    <p class="inner_font">내부 폰트 적용</p>
+    <!-- 
+        #1. transfonter.org 싸이트에서 변형(eot, ttf, woff, woff2, svg)작업 진행 
+        #2. 폴더 내부에 파일 옮긴 후 스타일(@font-face) 선언 + 경로까지 변경 
+    -->
+
+    <h3>폰트의 크기(font-size) : px, em, rem, vw, vh, %</h3>
+    <h4>고정형 단위 : px, pt</h4>
+    <div class="unit_px">고정형 단위 - px</div>
+    <div class="unit_pt">고정형 단위 - pt</div>
+
+    <h4>유동형 단위</h4>
+    <div class="unit_em">
+      <p>유동형 단위 - em</p>
+    </div>
+
+    <div class="unit_rem">
+      <p>유동형 단위 - rem</p>
+    </div>
+
+    <h4>브라우저의 사이즈에 의한 조정 단위</h4>
+    <div class="unit_vw">
+      <p>브라우저 외곽(스크롤바 영역 포함) 사이즈 단위 - vw</p>
+    </div>
+
+    <div class="unit_vh">
+      <p>브라우저 외곽(스크롤바 영역 포함) 사이즈 단위 - vh</p>
+    </div>
+
+    <h3>폰트 가중치(font-weight) : bold, normal, lighter, 100 ~ 900</h3>
+    <p class="fw_100">폰트 가중치-100</p>
+    <p class="fw_200">폰트 가중치-200</p>
+    <p class="fw_300">폰트 가중치-300</p>
+    <p class="fw_400">폰트 가중치-400</p>
+    <p class="fw_500">폰트 가중치-500</p>
+    <p class="fw_600">폰트 가중치-600</p>
+    <p class="fw_700">폰트 가중치-700</p>
+    <p class="fw_800">폰트 가중치-800</p>
+    <p class="fw_900">폰트 가중치-900</p>
+    <p class="fw_lighter">폰트 가중치-lighter</p>
+    <p class="fw_normal">폰트 가중치-normal</p>
+    <p class="fw_bold">폰트 가중치-bold</p>
+
+    <h3>폰트 스타일(font-style) : normal, italic</h3>
+    <p class="fs_italic">폰트 스타일 - italic</p>
+
+    <h3>문단의 가로방향 정렬(text-align) : left, center, right, justify</h3>
+    <p class="ta_left">문장의 가로 정렬 - left</p>
+    <p class="ta_center">문장의 가로 정렬 - center</p>
+    <p class="ta_right">문장의 가로 정렬 - right</p>
+    <div class="ta_justify">
+      문장의 가로 정렬 문장의 가로 정렬 문장의 가로 정렬 문장의 가로 정렬 문장의
+      가로 정렬 문장의 가로 정렬 문장의 가로 정렬 - justify
+    </div>
+
+    <h3>수직방향의 상대적 정렬(vertical-align) : top, middle, bottom</h3>
+    <div class="rel_align">
+      <span>인라인1</span>
+      <span>인라인2</span>
+    </div>
+
+    <div class="cart">
+      <a href="">
+        <img src="./img/cart.png" alt="" />
+        <span>CART</span>
+      </a>
+    </div>
+
+    <h3>들여쓰기 & 내여쓰기(text-indent) : 수치로 값을 부여</h3>
+    <div class="txt_indent">들여쓰기(양의 실수) & 내여쓰기(음의 실수)</div>
+
+    <h3>대소문자 변경(text-transform) : uppercase, lowercase, capitalize</h3>
+    <p class="tt_uppercase">uppercase</p>
+    <p class="tt_lowercase">LOWERcase</p>
+    <p class="tt_capitalize">league of legend</p>
+    <!-- 단어 중 첫글자만 대문자로 변경 -->
+
+    <h3>
+      문장에 가로 줄 긋기(text-decoration) : underline, line-through, overline,
+      none
+    </h3>
+    <p class="td_underline">아래 줄 긋기</p>
+    <p class="td_through">중간 줄 긋기</p>
+    <p class="td_overline">윗 줄 긋기</p>
+    <a href="" class="td_none">선 없애기</a>
+
+    <h3>
+      문단의 높이(line-height) : 0~실수값 -> 글자 높이의 배수단위 / 0~정수단위
+      -> 실제 높이값을 지정
+    </h3>
+    <p class="lh_multiple">배수조정</p>
+    <p class="lh_px">실제 높이 px 조정</p>
+  </body>
+</html>

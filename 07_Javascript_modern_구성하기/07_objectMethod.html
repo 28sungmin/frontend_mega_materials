@@ -1,0 +1,133 @@
+<script>
+    //object
+    const user = {
+        name: '홍길동',
+        age: 25,
+        kor: 80,
+        eng: 75,
+        math: 85,
+    };
+    const values = Object.values(user);
+    console.log(values); //['홍길동', 25, 80, 75, 85]
+    //객체 데이터 내부의 value값들만 배열 데이터로 반환시킨다.
+
+    const keys = Object.keys(user);
+    console.log(keys); //['name', 'age', 'kor', 'eng', 'math']
+    //객체 데이터 내부의 key명만 배열데이터로 반환시킨다.
+
+    console.log(keys.includes("fra"));
+    //backend로부터 api에 전달되는(또는 전달하는) 응답값을 조사한다. 필수항목임에도 불구하고 누락된 부분을 직접 요청할 때 사용
+
+    const entries = Object.entries(user);
+    console.log(entries); //[['name', '홍길동'], ['age', 25], ['kor', 80], ['eng', 75], ['math', 85]]
+
+    for(let [key, value] of Object.entries(user)){
+        //[[key0, value0], [key1, value1], ...]
+        console.log(`${key}, ${value}`);
+        //name, 홍길동 
+        //age, 25
+        //...
+    }
+
+    const set = new Set();
+    set.add('A');
+    set.add('B');
+    set.add('C');
+    set.delete('B');
+
+    console.log(set); //Set(2) {'A', 'C'}
+
+    //Map 객체는 키-값 쌍의 원래 삽입 순서를 기억
+    const map = new Map();
+
+    map.set('aaa', {name: '홍길동', age: 25});
+    console.log(map.get('aaa')); //{name: '홍길동', age: 25}
+    map.set('aaa', {name: '홍길순', age: 19});
+    console.log(map.get('aaa')); //{name: '홍길순', age: 19}
+
+    
+
+    const isKey = map.has("aaa"); //map객체에서 키의 존재여부를 따져서 boolean 처리한다.
+    console.log(isKey); //true
+
+    map.set('bbb', {name:"김하늘", age:35});
+
+    for(let [key, value] of map){
+        console.log(`${key}, ${value}`); 
+        //aaa, [object Object] 
+        //bbb, [object Object]
+    }
+
+    //합산을 하는 경우
+    //금융권 중 토스 : 통장 잔고관리 (각 은향별로 잔고에 대한 데이터값을 받음) -> 잔고의 내용은 변경이 항상 이뤄지기 때문에 그 값을 함수로 돌려주어야함 
+    //자동차 통행량 : a고속도로에 차량이 얼마나 진입했는를 합산해야 하는 경우
+    //reduce
+
+    const num = [1,2,3,4,5,6,7,8,9,10];
+    const result = num.reduce((t, v, i, a) => {
+        //t : 초기값 / v : value / i: index 번호 / a: array
+        console.log(`t : ${t}`);  //최초값은 0 ---> 
+        console.log(`v : ${v}`);  //1 -> 2 -> 3 -> 4 -> ... -> 10
+        console.log(`i : ${v}`);  //0 ~ 9까지 순차적으로 도출
+        console.log(`a : ${a}`);  //1,2,3,4,5,6,7,8,9,10 (고정)
+        return t + v;
+    }, 0);
+    console.log(result);  //55
+    /*
+    [return t + v]
+    순환 01회차 t : 0                ---> v : 1
+    순환 02회차 t : 0 + 1            ---> v : 2
+    순환 03회차 t : 0 + 1 + 2        ---> v : 3
+    순환 04회차 t : 0 + 1 + 2 + 3    ---> v : 4
+    
+    ...
+
+    순환 09회차 t : 0 + 1 + 2 + 3 + 4 +5 + 6 + 7 + 8     ---> v : 9
+    순환 10회차 t : 0 + 1 + 2 + 3 + 4 +5 + 6 + 7 + 8 + 9 ---> v : 10
+    순환 최종회차 t : 0 + 1 + 2 + 3 + 4 +5 + 6 + 7 + 8 + 9 + 10 ===> 최종 출력 55(최종회차에서 산출된 t값과 동일)
+
+    */
+    //https://grlib.sen.go.kr/grlib/board/index.do?menu_idx=25&manage_idx=388
+    //menu_idx=25&manage_idx=388
+    //url로부터 문자열을 받아서 객체화시킴 {banana:10, apple:20, oreange:30}
+    //ES5
+    var qs1 = "banana=10&apple=20&orange=30";
+    function parse_01(qs){
+        var queryString = qs.substr(0, qs.length);
+        console.log(queryString); //banana=10&apple=20&orange=30
+        var chunk = queryString.split("&");
+        console.log(chunk); //['banana=10', 'apple=20', 'orange=30']
+        var result = {};
+        for(i = 0; i < chunk.length; i++){
+            var part = chunk[i].split("=");
+            console.log(part);
+            var key = part[0];
+            var value = Number(part[1]);
+            result[key] = value;
+            console.log(result);
+        }
+        return result;
+    }
+    var parse_result_1 = parse_01(qs1);
+    console.log(parse_result_1);
+
+    //ES6
+    const qs2 = "banana=10&apple=20&orange=30";
+    const parse_02 = qs => {
+        const queryString = qs.substr(0, qs.length);
+        const chunk = queryString.split("&");
+        console.log(chunk);
+
+        const result = {}
+        chunk.forEach(v => {
+            const [key, value] = v.split("=");
+            console.log(`${key}, ${value}`);
+            result[key] = Number(value);
+            console.log(result); //{banana: 10} => {banana: 10, apple: 20} => {banana: 10, apple: 20, orange: 30}
+        });
+        return result;
+    }
+    const parse_result_2 = parse_02(qs2);
+    console.log(parse_result_2); //{banana: 10, apple: 20, orange: 30}
+</script>
+

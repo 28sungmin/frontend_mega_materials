@@ -1,0 +1,193 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css2?family=Moirai+One&display=swap");
+
+@font-face {
+  font-family: "YUN-BONG-GIL";
+  src: url("../font/YUN-BONG-GIL.eot");
+  src: url("../font/YUN-BONG-GIL.eot?#iefix") format("embedded-opentype"),
+    url("../font/YUN-BONG-GIL.woff2") format("woff2"),
+    url("../font/YUN-BONG-GIL.woff") format("woff"),
+    url("../font/YUN-BONG-GIL.ttf") format("truetype"),
+    url("../font/YUN-BONG-GIL.svg#YUN-BONG-GIL") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* 
+body{font-family: 'YUN-BONG-GIL';}
+h4{font-family: 'Moirai One', system-ui;} */
+
+.external_font {
+  font-family: "Moirai One", system-ui;
+  color: #09f;
+}
+
+.inner_font {
+  font-family: "YUN-BONG-GIL";
+}
+
+/* 폰트의 크기(font-size) */
+.unit_px {
+  font-size: 20px;
+}
+.unit_pt {
+  font-size: 20pt;
+}
+
+.unit_em {
+  font-size: 50px;
+}
+.unit_em p {
+  font-size: 1em;
+  line-height: 1;
+}
+/* 부모영역에서 font-size를 선언하지 않았을 경우, 1em = 16px */
+/* 부모영역에서 font-size를 24px 로 선언한다면, 1em = 24px */
+
+html {
+  font-size: 30px;
+}
+.unit_rem {
+}
+.unit_rem p {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.unit_vw {
+}
+.unit_vw p {
+  font-size: 10vw;
+}
+.unit_vh {
+}
+.unit_vh p {
+  font-size: 10vh;
+}
+
+/* 폰트 가중치(font-weight) */
+.fw_100 {
+  font-weight: 100;
+}
+.fw_200 {
+  font-weight: 200;
+}
+.fw_300 {
+  font-weight: 300;
+}
+.fw_400 {
+  font-weight: 400;
+}
+.fw_500 {
+  font-weight: 500;
+}
+.fw_600 {
+  font-weight: 600;
+}
+.fw_700 {
+  font-weight: 700;
+}
+.fw_800 {
+  font-weight: 800;
+}
+.fw_900 {
+  font-weight: 900;
+}
+.fw_lighter {
+  font-weight: lighter;
+}
+.fw_normal {
+  font-weight: normal;
+}
+.fw_bold {
+  font-weight: bold;
+}
+/* 폰트 스타일(font-style) */
+.fs_italic {
+  font-style: italic;
+}
+
+/* 문단의 가로방향 정렬 */
+.ta_left {
+  text-align: left;
+}
+.ta_center {
+  text-align: center;
+}
+.ta_right {
+  text-align: right;
+}
+.ta_justify {
+  text-align: left;
+}
+
+/* 수직방향의 상대적 정렬(vertical-align)  */
+.rel_align span:nth-child(1) {
+  font-size: 20px;
+  vertical-align: middle;
+  background-color: aqua;
+}
+.rel_align span:nth-child(2) {
+  font-size: 40px;
+  vertical-align: middle;
+  background-color: orange;
+}
+
+.cart {
+}
+.cart a {
+  background-color: #f00;
+  text-decoration: none;
+  color: #fff;
+  line-height: 2;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.cart a img {
+  height: 20px;
+  vertical-align: middle;
+}
+.cart a span {
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+/* 들여쓰기 & 내여쓰기(text-indent) */
+.txt_indent {
+  text-indent: 50px;
+}
+
+/* 대소문자 변경(text-transform) */
+.tt_uppercase {
+  text-transform: uppercase;
+}
+.tt_lowercase {
+  text-transform: lowercase;
+}
+.tt_capitalize {
+  text-transform: capitalize;
+}
+
+/* 문장에 가로 줄 긋기(text-decoration) */
+.td_underline {
+  text-decoration: underline;
+}
+.td_through {
+  text-decoration: line-through;
+}
+.td_overline {
+  text-decoration: overline;
+}
+.td_none {
+  text-decoration: none;
+}
+
+/* 문단의 높이(line-height) */
+.lh_multiple {
+  background-color: aqua;
+  line-height: 2;
+}
+.lh_px {
+  background-color: aqua;
+  line-height: 50px;
+}

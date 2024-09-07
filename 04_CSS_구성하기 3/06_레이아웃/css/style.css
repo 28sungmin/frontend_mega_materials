@@ -1,0 +1,466 @@
+@charset "utf-8";
+
+* {
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+.float_left {
+  width: 100%;
+  height: 60px;
+  background-color: #ccc;
+  margin-bottom: 30px;
+}
+.float_left > ul {
+}
+.float_left > ul > li {
+  float: left;
+  background-color: #faa;
+  margin: 0 10px;
+  line-height: 60px;
+}
+
+.float_right {
+  width: 100%;
+  height: 60px;
+  background-color: #ccc;
+  margin-bottom: 30px;
+}
+.float_right > ul {
+}
+.float_right > ul > li {
+  float: right;
+  background-color: #faa;
+  margin: 0 10px;
+  line-height: 60px;
+}
+
+#adidas_header {
+  width: 100%;
+  /* height: 40px; */
+  background-color: #edefed;
+}
+#adidas_header:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+#adidas_header .logo {
+  float: left;
+}
+#adidas_header .logo a {
+}
+#adidas_header .logo a img {
+  height: 40px;
+}
+
+#adidas_header nav {
+  float: right;
+}
+#adidas_header nav > ul {
+}
+#adidas_header nav > ul > li {
+  float: left;
+  margin: 0 10px;
+  line-height: 40px;
+}
+#adidas_header nav > ul > li > a {
+}
+
+/* display: block | inline | inline-block | none */
+
+#diplay {
+  padding: 20px 0;
+  background-color: #aff;
+  font-size: 0;
+}
+#diplay .img-box {
+  width: calc(25% - 20px);
+  height: 200px;
+  /* border: 0px dashed red;  */
+  border: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  display: inline-block;
+  margin: 0 10px;
+}
+#diplay .img-box.bg1 {
+  background-image: url(../img/snoopy_01.png);
+  background-color: #faa;
+}
+#diplay .img-box.bg2 {
+  background-image: url(../img/snoopy_02.png);
+  background-color: #ff0;
+}
+#diplay .img-box.bg3 {
+  background-image: url(../img/snoopy_03.png);
+  background-color: #0ff;
+}
+#diplay .img-box.bg4 {
+  background-image: url(../img/snoopy_04.png);
+  background-color: #0f0;
+}
+
+#display-center {
+  padding: 20px 0;
+  background-color: #f90;
+}
+#display-center .wrap {
+  /* width: 1000px;
+    margin: 0 auto; */
+  text-align: center;
+  font-size: 0;
+}
+#display-center .wrap .img-box {
+  width: 230px;
+  height: 200px;
+  /* border: 0px dashed red;  */
+  border: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  display: inline-block;
+  margin: 0 10px;
+}
+#display-center .wrap .img-box.bg1 {
+  background-image: url(../img/snoopy_01.png);
+  background-color: #faa;
+}
+#display-center .wrap .img-box.bg2 {
+  background-image: url(../img/snoopy_02.png);
+  background-color: #ff0;
+}
+#display-center .wrap .img-box.bg3 {
+  background-image: url(../img/snoopy_03.png);
+  background-color: #0ff;
+}
+#display-center .wrap .img-box.bg4 {
+  background-image: url(../img/snoopy_04.png);
+  background-color: #0f0;
+}
+
+#table-space {
+  width: 400px;
+  height: 300px;
+  background-image: url(../img/dog.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+  display: table;
+}
+#table-space h4 {
+  font-size: 24px;
+  /* text-align: center;
+    line-height: 300px; */
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+#flex1 {
+  padding: 20px 0;
+  background-color: #4cf;
+  height: 300px;
+  display: flex;
+
+  /* 자식의 배치방향 설정 */
+  flex-direction: column;
+  flex-direction: row; /* 기본값 */
+  /* flex-direction: row-reverse;
+    flex-direction: column-reverse; */
+
+  /* 자식의 가로방향 배치 설정 */
+  justify-content: center;
+  /* justify-content: flex-start;
+    justify-content: flex-end; */
+  justify-content: space-between;
+  /* 부모공간의 여백을 기준으로 자식을 배치한다. 좌우측 끝부분까지 활용  */
+  justify-content: space-around;
+  /* 부모가 자식 배치하는 과정에서 부모의 여백을 자식 배분하여 가져감 */
+
+  /* 자식의 세로방향 배치 설정 */
+  align-items: center;
+  /* align-items: flex-start;
+    align-items: flex-end; */
+}
+#flex1 .item {
+  width: 150px;
+  height: 150px;
+  background-color: #afa;
+}
+#flex1 .item:nth-child(2n) {
+  background-color: #faf;
+}
+
+.flex-header1 {
+  width: 100%;
+  height: 80px;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+}
+
+.flex-header1 .wrap {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-header1 .wrap .logo {
+  background-color: #aff;
+}
+.flex-header1 .wrap .logo a {
+}
+.flex-header1 .wrap .logo a img {
+  height: 50px;
+}
+.flex-header1 .wrap .menu {
+  background-color: #faf;
+}
+.flex-header1 .wrap .menu > ul {
+  display: flex;
+}
+.flex-header1 .wrap .menu > ul > li {
+  margin: 0 15px;
+  background-color: #fcc;
+}
+.flex-header1 .wrap .menu > ul > li > a {
+}
+
+.flex-header1 .wrap .sign {
+}
+.flex-header1 .wrap .sign > ul {
+  display: flex;
+}
+.flex-header1 .wrap .sign > ul > li {
+  padding: 0 15px;
+  background-color: #999;
+}
+.flex-header1 .wrap .sign > ul > li > a {
+}
+
+.flex-content1 {
+  background-color: #ddd;
+}
+.flex-content1 .wrap {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  /* 자식의 고유영역을 확보하기 위해서 사용 */
+}
+.flex-content1 .wrap .item {
+  width: calc(25% - 20px);
+  /*width: moz-calc(25% - 20px);
+    width: webkit-calc(25% - 20px);*/
+  height: 200px;
+  background-color: #faa;
+  margin: 0 10px 20px;
+}
+/*
+짝수번째 : nth-child(2n), nth-child(even)
+홀수번째 : nth-child(2n-1), nth-child(odd)
+*/
+.flex-content1 .wrap .item:nth-child(2n) {
+  background-color: #aaf;
+}
+
+.flex-content2 {
+  width: 100%;
+  background-color: #ddd;
+}
+.flex-content2 .wrap {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  /* 자식의 고유영역을 확보하기 위해서 사용 */
+  /*
+    row-gap: 10px;
+    column-gap: 20px;
+    */
+  gap: 10px 20px;
+  justify-content: center;
+}
+.flex-content2 .wrap .item {
+  width: calc(25% - 20px);
+  height: 200px;
+  background-color: #faa;
+}
+.flex-content2 .wrap .item:nth-child(2n) {
+  background-color: #aaf;
+}
+
+.flex-child1 {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #ccc;
+}
+
+.flex-child1 .item {
+  width: auto;
+  height: 100px;
+  background-color: #faa;
+}
+.flex-child1 .item.item1 {
+  background-color: #aaf;
+  order: 4;
+  flex-grow: 1;
+}
+.flex-child1 .item.item2 {
+  background-color: #fc5;
+  order: 1;
+  flex-grow: 2;
+}
+.flex-child1 .item.item3 {
+  background-color: #c5f;
+  order: 2;
+  flex-grow: 1;
+}
+.flex-child1 .item.item4 {
+  background-color: #8cf;
+  order: 3;
+  flex-grow: 4;
+}
+
+.flex-child2 {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #ccc;
+}
+
+.flex-child2 .item {
+  width: 100%;
+  height: 100px;
+  background-color: #faa;
+}
+.flex-child2 .item.item1 {
+  background-color: #aaf;
+  flex-shrink: 2;
+}
+.flex-child2 .item.item2 {
+  background-color: #fc5;
+  flex-shrink: 3;
+}
+.flex-child2 .item.item3 {
+  background-color: #c5f;
+  flex-shrink: 4;
+}
+.flex-child2 .item.item4 {
+  background-color: #8cf;
+  flex-shrink: 3;
+}
+
+/*position*/
+.po_static {
+  width: 300px;
+  height: 300px;
+  background-color: #faa;
+  margin-top: 30px;
+  margin-left: 60px;
+}
+
+.po_relative {
+  width: 300px;
+  height: 300px;
+  background-color: #ffa;
+  position: relative;
+  top: 30px;
+  left: 60px;
+}
+
+/*양의 울타리 역할*/
+.po_absolute_space {
+  width: 300px;
+  height: 300px;
+  background-color: #aff;
+  position: relative;
+  top: 20px;
+  left: 40px;
+}
+/*양1*/
+.absolute1 {
+  width: 100px;
+  height: 100px;
+  background-color: #faf;
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  z-index: 1;
+}
+/*양2*/
+.absolute2 {
+  width: 100px;
+  height: 100px;
+  background-color: #aaf;
+  position: absolute;
+  /* top: 40px;
+    left: 70px; */
+  right: 20px;
+  bottom: 30px;
+  z-index: 0;
+}
+
+.ad_photo {
+  width: 200px;
+  height: 150px;
+  background-image: url(../img/chair.jpg);
+  background-size: cover;
+  background-position: center center;
+  position: relative;
+  left: calc(50% - 100px);
+}
+.ad_photo img {
+  position: absolute;
+  height: 50px;
+  top: -25px;
+  left: -25px;
+}
+
+.po_fixed {
+  width: 100px;
+  height: 100px;
+  background-color: #f00;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+}

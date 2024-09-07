@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="top">1일차 복습입니다.</div>
+    <div>블록과 인라인</div>
+
+    <h3>요소성질</h3>
+    <h4>블록성질 : h1~h6(headline tag - 타이틀 파트), p(paragraph - 문단), div (divide - 공간을 형성, 그룹핑 작업)</h4>
+    <p> - 줄바꿈이 존재</p>
+    <p> - 공간에 대한 구성이 정확하게 가로값과 세로값으로 떨어진다.</p>
+    <p> - 독립적인 말단 태그(h1 ~ h6), 복합적인 태그(div)</p>
+    <h5>블록성질 => 레고블록(상하로 쌓인다. => 세로방향으로 나열)</h5>
+
+    <h4>인라인성질 : a (anchor - 링크를 걸어줄 때 사용 / href), img (image - 이미지를 넣을 때 사용 / src(source), alt(alternative -  시각장애인을 위한 이미지의 설명)), span (인라인 성질을 갖고 있는 독립적이면서도 그룹핑이 가능)</h4>
+    <p> - 줄바꿈이 없음</p>
+    <p> - 자체 커서영역이 존재(통제대상) : HTML 문서상에서 엔터값이 화면상에 반영</p>
+    <p> - 공간에 대한 세로영역이 모호</p>
+    <p> - 독립적인 말단 태그(a, img, span), 복합적인 태그(span)</p>
+    <h5>인라인 성질 => 인라인 스케이트의 바퀴</h5>
+
+    <hr>
+
+    <h2>헤드라인 태그</h2>
+    <p>1em = 16px</p>
+    <h1>타이틀 h1 - 폰트 크기 32px(2em)</h1>
+    <h2>타이틀 h2 - 폰트 크기 24px(1.5em)</h2>
+    <h3>타이틀 h3 - 폰트 크기 18.72px(1.17em)</h3>
+    <h4>타이틀 h4 - 폰트 크기 16px(1em)</h4>
+    <h5>타이틀 h5 - 폰트 크기 13.28px(0.83em)</h5>
+    <h6>타이틀 h5 - 폰트 크기 10.72px(0.67em)</h6>
+
+    <h2>문단태그</h2>
+    <p>문단 p 태그 - 폰트 크기 16px</p>
+    <p>14일 업계에 따르면 삼성전자는 18일 오전 3시(한국시간) 미국 캘리포니아주 새너제이에서 '갤럭시 언팩'을 열어 신제품을 공개한다. <br><br>
+
+        갤럭시 S24 시리즈의 가장 큰 특징은 온디바이스 AI 구현이다.</p>
+
+    <p>14일 업계에 따르면 삼성전자는 18일 오전 3시(한국시간) 미국 캘리포니아주 새너제이에서 '갤럭시 언팩'을 열어 신제품을 공개한다.</p>
+    <p>갤럭시 S24 시리즈의 가장 큰 특징은 온디바이스 AI 구현이다.</p>
+
+    <p>손흥민 <b>득점왕</b> 수상</p>
+
+    <h2>링크태그 : a 태그</h2>
+    <p>href : Hypertext REFerance 속성값 내부에 해당하는 문서 또는 경로를 참조한다.</p>
+    <!-- 절대경로 : https로 시작되는 경로설정시 -->
+    <a href="https://www.naver.com/">네이버</a>
+
+    <!-- 상대경로 : 현재의 문서 파일을 기준으로 페이지 위치를 이동시킬 때 -->
+    <a href="sub.html">서브페이지로 이동</a>
+
+    <p>a 태그 내부의 href에서 작성되는 대표적인 속성값들</p>
+    <a href="tel:01012345678">중국집으로 전화주문</a>
+    <a href="mailto:custom@naver.com">고객센터 문의하기</a>
+    <a href="sms:01012345678">000에게 문자보내기</a>
+    <a href="#top">페이지 상단으로 이동</a>
+    <a href="javascript:alert('경고창 팝업');">브라우저 경고창 띄우기</a>
+
+
+    <h2>이미지 태그</h2>
+    <img src="./img/kakao1.png" alt="카카오 이미지1" style="background-color: pink; width: 100px;">
+    <img src="./img/kakao2.jpg" alt="카카오 이미지2" style="width: 100px;">
+    <img src="./img/kakao3.gif" alt="카카오 이미지2" style="width: 100px;">
+
+    <img src="./img/facebook.svg" alt="페이스북 로고" style="width: 100px;">
+
+    <h2>그룹핑이 가능한 태그 : div, span</h2>
+    <div style="width: 100%; height: 200px; background-color: #aff;">
+        Main 공간
+        <div>대표 이미지</div>
+        <div style="text-align: center;">
+            <img src="./img/kakao2.jpg" alt="카카오 이미지2" style="width: 100px;">
+        </div>
+        
+    </div>
+    <div style="width: 100%; height: 100px; background-color: #ffa;">Banner 공간</div>
+    <div style="width: 100%; height: 150px; background-color: #aaf;">Contents 공간</div>
+    <div style="width: 100%; height: 80px; background-color: #bbb;">Footer 공간</div>
+
+    <span style="color: red;">
+        오늘의 할일
+        <span style="color: aqua;">1. 아침먹기</span>
+        <a href="">밀키트 주문하기</a>
+    </span>
+
+    <h2>그밖의 텍스트를 정의하는 태그</h2>
+    <p>강조태그 : 볼드, 이탤릭 처리</p>
+    <strong>볼드 처리1</strong>
+    <b>볼드 처리2</b>
+    <em>이탤릭 처리1</em>
+    <i>이탤릭 처리2</i>
+
+    <p>취소선 : del</p>
+    <del>취소선</del>
+    <span><del>12,000 원</del> => 10,000원 </span>
+
+    <p>상단 표시, 하단 표시</p>
+    <span>아이디 <sup style="color: red;">*</sup></span>
+    <span>CO<sub>2</sub></span>
+
+    <p>글로벌 화폐</p>
+    <span>$99<small>.99</small></span>
+
+
+    <hr>
+
+    <h2>table 구성</h2>
+
+
+    <table border="1" style="border-collapse: collapse; text-align: center; width: 100%;">
+        <colgroup>
+            <col width="20%">
+            <col width="40%">
+            <col width="40%">
+        </colgroup>
+        <thead>
+            <tr>
+                <th colspan="2" scope="row">구분</th>
+                <!-- <th></th> -->
+                <th scope="row">가격</th>
+            </tr>
+        </thead>
+
+        <tfoot>
+            <tr>
+                <td>예매결과</td>
+                <td colspan="2">성인 2, 아동 1</td>
+            </tr>
+        </tfoot>
+
+        <tbody>
+            <tr>
+                <td rowspan="2">가격표</td>
+                <td>성인</td>
+                <td>50,000원</td>
+            </tr>
+            <tr>
+                <!-- <td></td> -->
+                <td>어린이</td>
+                <td>30,000원</td>
+            </tr>
+            <tr>
+                <td colspan="3">정책상 변동운용</td>
+                <!-- <td></td> -->
+                <!-- <td></td> -->
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+    
+
+</body>
+</html>

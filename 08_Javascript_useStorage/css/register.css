@@ -1,0 +1,55 @@
+/*register.css*/
+@charset "utf-8";
+
+section {
+  padding: 40px 0;
+}
+section #form {
+  width: 500px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+section #form h3 {
+  color: #555;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+section #form #register_form {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+}
+section #form #register_form .input_line {
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+section #form #register_form .input_line label {
+  color: #777;
+  width: 120px;
+}
+section #form #register_form .input_line input {
+  width: calc(100% - 120px);
+  height: 40px;
+  padding: 0 10px;
+  outline-color: #f00;
+  color: #777;
+  border: 1px solid #aaa;
+}
+
+section #form #register_form .input_btn {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #ccc;
+  padding-top: 20px;
+}
+section #form #register_form .input_btn button {
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  background-color: #08f;
+  color: #fff;
+  cursor: pointer;
+}

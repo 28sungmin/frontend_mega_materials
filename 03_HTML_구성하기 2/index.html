@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_HTML_구성하기</title>
+</head>
+<body>
+    <a href="">텍스트 표현</a>
+    <!-- a : 요소명
+    href="" : 속성명="속성값"
+    텍스트 표현 : 화면상에 노출되는 텍스트 영역 -->
+
+    <h3>리스트 항목 : ol, ul, dl</h3>
+    <h4>ol(Order List) : 순차적 목록, 블록성질 <br />
+        type 속성에는 A(알파벳 대문자), a(알파벳 소문자), I(로마숫자 대문자), i(로마숫자 소문자), 1(아라비아 숫자). 기본값 1(아라비아 숫자)<br />
+        start 속성을 통해서 최초의 시작 숫자 또는 문자를 지정할 수 있음
+    </h4>
+
+    <h4>입사지원 순서</h4>
+    <ol type="I" start="1">
+        <li><p>1차 면접</p></li>
+        <li>2차 면접</li>
+        <li>최종 면접</li>
+        <li>건강검진</li>
+        <li>
+            합격여부
+            <ol type="i">
+                <li>합격통보</li>
+                <li>OT</li>
+            </ol>
+        </li>
+    </ol>
+
+    <h4>ul(Unorder List) : 비순차적 목록. 블록성질<br />
+        list-style로 초기 리스트 표기를 결정할 수 있음(circle, disc, square, none). 기본은 disc
+    </h4>
+    <ul style="list-style: none;">
+        <li>바람과 함께 사라지다</li>
+        <li>엄마는 외계인</li>
+        <li>민트초코</li>
+    </ul>
+
+    <!-- 웹에서는 거의 대부분의 영역을 <ul> ~ <li>으로 사용한다. 단수인 경우는 제외 -->
+    <!-- ul과 ol 태그의 자식은 무조건 li태그만 사용할 수 있음(웹표준) -->
+
+    <h4>dl(Definition List), dt(Definition Term), dd(Definition Description)</h4>
+    <h4>UN 산하기구</h4>
+    <dl>
+        <dt>유니세프</dt>
+        <dd>유니세프는 ...</dd>
+        <dt>유네스코</dt>
+        <dd>유네스코는 ...</dd>
+    </dl>
+
+    <hr />
+
+    <h3>form 태그 : 서버의 DB와 연동시 필요한 정보를 요청(Request)/응답(Response)이 이루어지게끔 구성하는 요소의 총 부모영역으로 지정</h3>
+
+    <h4>로그인 상자 구성하기</h4>
+    <form name="login_form" action="" method="post">
+        <input type="text" placeholder="아이디 입력" maxlength="10" required><br />
+        <input type="password" placeholder="패스워드 입력" required><br />
+        <input type="submit" value="로그인">
+        <input type="reset" value="취소하기">
+    </form>
+
+    <h4>댓글 작성하기</h4>
+    <form name="review_form" action="" method="post">
+        <textarea name="review_box" id="" cols="30" rows="5" placeholder="10 ~ 100자까지 작성해 주세요" maxlength="100" minlength="10" required></textarea>
+        <input type="submit" value="리뷰작성">
+        <input type="reset" value="초기화하기">
+    </form>
+
+    <h4>회원가입</h4>
+    <form name="register_form" action="" method="post">
+        <h5>필수입력사항</h5>
+
+        <p>아이디&nbsp;<span style="color: red;">*</span></p>
+        <input name="userid" type="text" placeholder="아이디" required>&nbsp;
+        <button type="button">중복확인</button>
+
+        <p>패스워드</p>
+        <input name="userpw" type="password" placeholder="패스워드" required>
+
+        <p>패스워드 확인</p>
+        <input name="userpw_confirm" type="password" placeholder="패스워드 확인" required>
+
+        <p>이메일</p>
+        <input name="useremail" type="email" placeholder="이메일" required>
+
+        <h5>선택입력사항</h5>
+
+        <p>성별</p>
+        <input type="radio" name="gender" value="male" checked>&nbsp;남성
+        <input type="radio" name="gender" value="female">&nbsp;여성
+        <!-- 라디오버튼은 다수의 항목 중에서 하나만을 선택해야 할 때 사용. [주의사항] 반드시 name이라는 속성의 속성값이 일치해야 함 -->
+
+        <p>취미</p>
+        <input type="checkbox" name="hobby" value="swim">&nbsp;수영
+        <input type="checkbox" name="hobby" value="yoga">&nbsp;요가
+        <input type="checkbox" name="hobby" value="climbing">&nbsp;등산
+        <input type="checkbox" name="hobby" value="cycle">&nbsp;자전거
+        <input type="checkbox" name="hobby" value="board">&nbsp;롱보드
+        <!-- 체크박스는 다수 선택이 가능. name 속성과는 무관 -->
+
+        <br />
+        <input type="submit" value="회원가입">
+    </form>
+
+    <hr />
+
+    <h4>버튼의 비교</h4>
+    <input type="submit" value="전송">
+    <button type="submit">전송</button>
+    <br />
+    <input type="reset" value="초기화">
+    <button type="reset">초기화</button>
+    <br />
+    <input type="button" value="버튼">
+    <button type="button">버튼</button>
+
+    <hr />
+
+    <h4>컬러 추출</h4>
+    <input type="color" name="import_color" id="">
+    <!-- 컬러타입 : 
+    문자(red, orange, ...) / 
+    rgb(0~255, 0~255, 0~255) / 
+    Hex코드(#000000 => #00(red)00(green)00(blue))
+    #000000 ~ #ffffff -->
+
+    <div 
+    style="width: 100px; height: 100px; background-color: #ff0000; "></div>
+    <div 
+    style="width: 100px; height: 100px; background-color: rgba(255, 0, 0, 0.5);"></div>
+
+    <h4>날짜 캘린더를 보여주는 입력상자</h4>
+    <input type="date" name="checkin" id="">
+    <input type="date" name="checkout" id="">
+    <input type="month" name="" id="">
+
+
+    <h4>첨부파일 기능</h4>
+    <input type="file" name="upload_single" id="">
+    <input type="file" name="upload_several" id="" multiple>
+    <!-- 첨부파일 업로드간 multiple을 속성으로 지정한다면 복수의 파일을 첨부할 수 있음 -->
+
+    <h4>각 입력상자의 이름을 지정하는 태그 : label</h4>
+    <label for="review">리뷰</label><br />
+    <textarea name="review_space" id="review" cols="30" rows="10" placeholder="리뷰를 작성해 주세요" style="resize: none;"></textarea>
+
+    <h4>검색영역 입력상자</h4>
+    <input type="search" name="" id="">
+
+    <h4>상품 고유 코드:일반적인 사용자에게는 알려줄 필요가 없는 경우</h4>
+    <input type="hidden" name="" value="sd00-123">
+
+    <h4>상품 수량</h4>
+    <input type="number" name="product_num" id="">
+
+    <h3>선택상자</h3>
+    <h4>지역선택</h4>
+    <select name="select_address" id="">
+        <optgroup label="강남구">
+            <option value="대치동">대치동</option>
+            <option value="논현동">논현동</option>
+            <option value="도곡동">도곡동</option>
+        </optgroup>
+        <optgroup label="서초구">
+            <option value="방배동">방배동</option>
+            <option value="서초동">서초동</option>
+            <option value="반포동">반포동</option>
+        </optgroup>
+    </select>
+
+    <h4>datalist 활용</h4>
+    <label for="disney_choice">디즈니 영화 선택하기</label>
+    <input type="text" list="disney_favor" id="disney_choice" />
+
+    <datalist id="disney_favor">
+        <option value="겨울왕국">겨울왕국</option>
+        <option value="라푼젤">라푼젤</option>
+        <option value="위시">위시</option>
+    </datalist>
+
+    <hr />
+    <hr />
+
+    <div style="width: 100%; height: 100px; background-color: #aff;">header</div>
+    <header style="width: 100%; height: 100px; background-color: #8bb;">header</header>
+
+    <div style="width: 100%; height: 180px; background-color: #f9f;">content1</div>
+    <section style="width: 100%; height: 180px; background-color: #f5f;">content2</section>
+    <article style="width: 100%; height: 180px; background-color: #faf;">content3</article>
+
+    <footer style="width: 100%; height: 80px; background-color: #363636; color: #fff;">footer</footer>
+
+    div -> header, nav, section, article, main, aside, footer 분리 적용
+    header > nav
+    main(h1 ~ h6의 타이틀 텍스트를 동반시켜야 함) > section > article
+    main(h1 ~ h6의 타이틀 텍스트를 동반시켜야 함) > section > aside
+
+
+    <header>
+        로고
+        <nav>
+            <ul>0
+                <li><a href="">메뉴1</a></li>
+                <li><a href="">메뉴2</a></li>
+                <li><a href="">메뉴3</a></li>
+            </ul>
+        </nav>
+    </header>`
+    <main>
+        <section>
+            <article>
+                <div></div>
+            </article>
+            <article></article>
+            <article></article>
+            <article></article>
+        </section>
+        <section>
+            <article></article>
+            <article></article>
+            <article></article>
+            <article></article>
+        </section>
+        <section></section>
+        <section></section>
+        <section></section>
+    </main>
+    <footer>
+    </footer>
+
+    <hr />
+
+    <h3>멀티미디어 활용</h3>
+    <h4>video tag를 활용한 저장된 영상 가져오기</h4>
+    <video autoplay muted loop playsinline>
+        <source type="video/mp4" src="./contents/Beosound_A1_2nd_Gen.mp4">
+        Your Browser is not supported.
+    </video>
+    <hr />
+    <video autoplay muted loop playsinline src="./contents/Beosound_A1_2nd_Gen.mp4"></video>
+
+    <h4>비디오 태그를 구성하는 속성들</h4>
+    <p>#1. source라는 태그를 활용하여 영상의 형식을 다양하게 가져올 수 있다.</p>
+    <p>#2. 브라우저가 로딩된 후 영상이 자동재생 되기 위해서는 video  태그 내부에 autoplay 속성을 작성한다. (iOS의 버전 호환성상 playsinline 속성 추가)</p>
+    <p>loop : 반복재생 / muted : 음소거모드 / controls : 재생 일시정지 버튼의 활성화</p>
+
+    <h4>유투브 영상 가져오기</h4> 
+    <div>
+        <iframe width="640" height="360" src="https://www.youtube.com/embed/kcfs1-ryKWE?rel=0&autoplay=1&loop=1;playlist=kcfs1-ryKWE&mute=1" title="FPV Drone Flight through Beautiful Iceland Canyon" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+        <iframe class="movie-space" src="https://www.youtube.com/embed/M_l1IjV-Ycw?rel=0&autoplay=1&loop=1;playlist=M_l1IjV-Ycw&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <h4>음성 파일 재생하기</h4>
+    <div>
+        <audio autoplay loop playsinline controls src="./contents/aud_03.mp3"></audio>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    
+</body>
+</html>

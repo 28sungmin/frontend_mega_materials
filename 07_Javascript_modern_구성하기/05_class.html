@@ -1,0 +1,344 @@
+<script>
+    //Class라는 개념은 자바로 인입된 개념 중 하나
+    //Class라는 존재는 어떠한 그룹을 가리킴
+
+    const pony = {
+        name: "아반떼",
+        color: "white", 
+        start: function(){
+            console.log(`${this.name}가(이) 시동을 건다.`);
+        },
+        drive: function(){
+            console.log(`${this.name}가(이) 주행을 시작합니다.`);
+        },
+        stop: function(){
+            console.log(`${this.name}가(이) 주행을 멈춥니다.`);
+        },
+        parking: function(){
+            console.log(`${this.name}가(이) 주차를 합니다.`);
+        }   
+    }
+    console.log(pony.name);
+    console.log(pony.color);
+    pony.start();
+    pony.drive();
+    pony.stop();
+    pony.parking();
+
+    // 객체는 주목적이 재활용을 기반으로 접근
+    // 프로토타입 : 재사용이 가능한 구조를 만듬
+    const Car = (function(){
+        console.log("프로토타입의 시작");
+        //생성자(Constructuor) - 객체 내의 어떤 새로운 key와 value 값을 생성하여 받아들일 수 있도록 구성. 객체 내부의 생성을 담당하는 곳
+        function Car(name1, color1, type1){
+            console.log(this);
+            this.name = name1;
+            this.color = color1;
+            this.type = type1;
+            console.log(this);
+        }
+        Car.prototype.start = function(){
+            console.log(this);
+            console.log(`${this.color} ${this.name}가(이) 시동을 겁니다.`);
+            this.drive();
+        }
+        Car.prototype.drive = function(){
+            console.log(`${this.color} ${this.name}가(이) 주행을 시작합니다.`);
+            this.stop();
+        }
+        Car.prototype.stop = function(){
+            console.log(`${this.color} ${this.name}가(이) 주행을 멈춥니다.`);
+            this.parking();
+        }
+        Car.prototype.parking = function(){
+            console.log(`${this.color} ${this.name}가(이) 주차합니다.`);
+        }
+        return Car; //Car 메모리에 돌려준다.
+    })(); //즉시실행함수를 사용하여 함수를 작동시킨다.(최초실행)
+
+    const avante = new Car("아반떼", "화이트", "준중형"); 
+    avante.start();
+    const tusan = new Car("투싼", "검정", "SUV");
+    tusan.start();
+    
+    //자바스크립트의 내장객체
+    //new Date : 날짜객체를 선언
+    //new String : 문자객체를 선언
+    //new Number : 수학객체를 선언
+    //new Array : 배열객체를 선언
+    //new Object : 객체를 선언
+
+    //new Student() 선언하는 것은 내장객체에 포함된 것이 아님. 인스턴스 객체 => Student라는 명칭이 무엇을 하는 것인지에 대한 사전적 정의가 필요
+
+
+    //[실습]
+    const member_student = [
+        ["강나라", "7반"],
+        ["나영지", "3반"],
+        ["김동현", "9반"],
+    ];
+    //[콘솔 결과 출력] 000 학생이 0반에 들어갔습니다. (prototype.enter)
+    //for문 사용하여 Student라는 프로토타입화 시킴
+    const Student = (function(){
+        //생성자 파트
+        function Student(name1, class1){
+            this.name = name1;
+            this.classNum = class1;
+        }
+        Student.prototype.enter = function(){
+            console.log(`${this.name} 학생이 ${this.class}에 들어갔습니다.`);
+        }
+        return Student;
+    })();
+
+    for(v of member_student){
+        console.log(v);
+        const st_mem = new Student(v[0], v[1]);
+        st_mem.enter();
+    }
+
+    //[실습] 게임 입장 파트(던전)
+    //배열 패턴 : {"이름", "종족", "레벨"}
+    const gamer = [
+        {name: "불타는 용병", category: "오크", level: 54},
+        {name: "얼음 마법사", category: "휴먼", level: 32},
+        {name: "할리퀸", category: "하이엘프", level: 28},
+        {name: "언제나 초보", category: "오크", level: 47},
+    ];
+    //예시, 콘솔창에 "이름(종족 - 레벨) 님이 입장하셨습니다." (총 4명)
+    //반드시 프로토타입으로 구성할 것~! new Gamer()
+
+    const Gamer = (function(){
+        //생성자 파트
+        function Gamer(gName, gCategory, gLevel){
+            this.name = gName;
+            this.category = gCategory;
+            this.level = gLevel;
+        }
+        //프로토타입 파트
+        Gamer.prototype.enter = function(){
+            console.log(`${this.name}(${this.category} - ${this.level}) 님이 입장하셨습니다.`)
+        }
+        return Gamer;
+    })()
+
+    for(v of gamer){
+        const hero = new Gamer(v.name, v.category, v.level);
+        hero.enter();
+    }
+
+    //ES6에서는 객체를 클래스화 시킴(기다리고 있다가 더이터 값이 전달되면 하나의 메모리 공간을 별도로 찾게 만들게 됨)
+    class NewCar {
+        //생성자 : 클래스 인자 내부에서 객체를 생성
+        constructor(name1, color1){
+            console.log(name1); //뉴 아반떼
+            console.log(color1); //블루
+            this.name = name1;
+            this.color = color1;
+        }
+        //기능
+        start(){
+            console.log(this); //NewCar {name: '뉴 아반떼', color: '블루'}
+            console.log(`${this.name}(${this.color}) 가(이) 시동을 겁니다.`);
+            this.drive();
+        }
+        drive(){
+            console.log(`${this.name}(${this.color}) 가(이) 주행을 합니다.`);
+            this.stop();
+        }
+        stop(){
+            console.log(`${this.name}(${this.color}) 가(이) 멈춥니다.`);
+            this.parking();
+        }
+        parking(){
+            console.log(`${this.name}(${this.color}) 가(이) 주차를 합니다.`);
+        }
+    }
+    const newAvante = new NewCar("뉴 아반떼", "블루");
+    console.log(newAvante); //NewCar {name: '뉴 아반떼', color: '블루'}
+    newAvante.start();
+
+    const newTusan = new NewCar("뉴 투싼", "레드");
+    newTusan.start();
+    /*
+    [class 작성간 주의 사항]
+        - 클래스명은 반드시 첫글자를 대문자로 작성한다.
+        - 호이스팅은 적용되지 않음. 문서상에서 class가 먼저 선언되어야 하고 관련된 호출이 나중에 작성되어야 함
+        - 실제 전달되어지는 생성자와 행동으로 이어질 수 있는 기능을 동일한 명칭으로 작성하면 안됨
+    */
+
+    class CartBox1 {
+        constructor(item){
+            this.item = item;
+        }
+        item(){
+            console.log(this);
+        }
+    }
+    const gift1 = new CartBox1("레고세트");
+    console.log(gift1); //CartBox1 {item: '레고세트'}
+    //gift1.item(); //Uncaught TypeError: gift1.item is not a function
+
+
+    //실습문제 : 게임입장 파트(던전)
+    const d_gamer = [
+        {name: "불타는 용병", category: "오크", level: 54},
+        {name: "얼음 마법사", category: "휴먼", level: 32},
+        {name: "할리퀸", category: "하이엘프", level: 28},
+        {name: "언제나 초보", category: "오크", level: 47},
+    ];
+    //예시, 콘솔창에 "이름(종족 - 레벨) 님이 입장하셨습니다." (총 4명)
+    //class를 활용할 것
+    class D_gamer {
+        //생성자 파트
+        constructor(name1, category1, level1){
+            this.name = name1;
+            this.category = category1;
+            this.level = level1;
+        }
+        //기능 파트
+        dEnter(){
+            console.log(`${this.name}(${this.category} - ${this.level}) 님이 입장하셨습니다.`);
+        }
+    }
+    for(v of d_gamer){
+        const gameMember = new D_gamer(v.name, v.category, v.level);
+        // console.log(gameMember);
+        gameMember.dEnter();
+    }
+
+    //만약, 동물원에 대한 프로그램을 구성하고자 한다. 토끼, 원숭이, 호랑이, ... 등에게 먹이를 주었는지 또는 주지 않았는지에 대한 결과값을 얻고자 함
+    class Zoo {
+        //생성자 파트
+        constructor(animalName, animalFood){
+            this.name = animalName;
+            this.food = animalFood;
+        }
+        //기능 파트
+        feed(){
+            console.log(`${this.name}에게 ${this.food} 먹이를 주었습니다.`);
+        }
+    }
+    const animal = new Zoo("동물", "음식");
+    console.log(animal); //Zoo {name: '동물', food: '음식'}
+    animal.feed();
+
+    //상속(extends) : 
+    class Rabbit extends Zoo{
+
+    }
+    const rabbit = new Rabbit("토끼", "건초");
+    console.log(rabbit); //Rabbit {name: '토끼', food: '건초'}
+    rabbit.feed();
+
+    class Monkey extends Zoo{
+        //메서드 오버라이딩
+        feed(){
+            console.log(`${this.name}는 감기에 걸려서 ${this.food}를 먹을 수가 없습니다.`);
+        }
+    }
+    const monkey = new Monkey("원숭이", "바나나");
+    monkey.feed();
+
+    //실습문제: class + extends(상속) + method overiding 적용
+    //각 캐리터 존재 + 각 캐릭터마다 다른 장비를 갖고 있음
+    //knight("기사", "얼음검")
+    //wizard("마법사", "불의 지팡이")
+    //stealer("도적", "블랙 단도")
+
+    //Dungeon이라는 클래스에 생성자와 기능인 action()을 넣고
+    //콘솔창에 "0000이(가) 0000을 사용했습니다."
+
+    //메서드 오버라이드를 이용하여 콘솔창에 도적은 "00은 무기인 000을 버리고 도망갔습니다."
+
+    //상속할 대상
+    class Dungeon{
+        //생성자 파트
+        constructor(job, weapon){
+            this.job = job;
+            this.weapon = weapon;
+        }
+        //기능
+        action(){
+            console.log(`${this.job}이(가) ${this.weapon}을 사용했습니다.`);
+        }
+    }
+    class Knight extends Dungeon{
+
+    }
+    const knight = new Knight("기사", "얼음검");
+    knight.action();
+
+    class Wizard extends Dungeon{
+
+    }
+    const wizard = new Wizard("마법사", "불의 지팡이");
+    wizard.action();
+
+    class Stealer extends Dungeon{
+        action(){
+            console.log(`${this.job}은 무기인 ${this.weapon}을 버리고 도망갔습니다.`);
+        }
+    }
+    const stealer = new Stealer("도적", "블랙 단도");
+    stealer.action();
+
+
+    //getter & setter : 장바구니의 품목 수량이 1개 미만으로 입력 불가되도록 구성하는 코드. 최소수량 1 이상으로 구성
+    class MyCart{
+        //생성자 파트
+        constructor(name1, price1, number1){
+            this.name = name1;
+            this.price = price1;
+            this.number = number1; //[#0]
+            //number == _num  //[#5]
+        }
+        set number(value){
+            console.log(value); //0 (this.number에 저장된 값)  //[#1]
+            this._num = value < 1 ? 1 : value; //[#2]
+            //value 값이 1미만이라면 -> this._num = 1
+            //value 값이 1이상이라면 -> this._num = value
+            console.log(this._num); //1
+        }
+        get number(){
+            console.log(this._num);  //1 [#3]
+            return this._num; //[#4]
+        }
+        //기능 파트
+        buy(){
+            console.log(this);
+            console.log(`${this.price}원의 ${this.name}를 ${this._num}개가 카트에 담겨 있습니다.`);
+        }
+    }
+    const hamberg = new MyCart("수제버거", 4000, 0);
+    console.log(hamberg);
+    hamberg.buy();
+
+    const gimbab = new MyCart("참치김밥", 2500, 2);
+    gimbab.buy();
+
+    //정적메서드
+    class Member{
+        constructor(id1, name1){
+            this.id = id1;
+            this.name = name1;
+        }
+        test(){
+            console.log(`${this.name}(${this.id})님 환영합니다.`);
+        }
+        static test1(){
+            console.log(`${this.name}(${this.id})님 환영합니다.`);
+        }
+        static test2(id2, name2){
+            console.log(this.name); //Member
+            console.log(this.id); //
+            console.log(`${name2}(${id2})님 환영합니다.`);
+        }
+    }
+    const mem = new Member("hgd", "홍길동");
+    mem.test();
+    // mem.test1(); //mem.test1 is not a function
+    Member.test2("kcm", "김철민"); 
+    //정적 메서드로 선언 되었기 때문에 정적 프로퍼티(객체의 key)로 접근 불가 => constructor라는 생성자에서 받아온 값을 이용할 수 없는 독립적인 메서드의 역할을 내부에서 담당하게 됨
+
+</script>

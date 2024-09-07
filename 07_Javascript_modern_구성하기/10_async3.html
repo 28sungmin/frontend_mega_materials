@@ -1,0 +1,50 @@
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    //https://jsonplaceholder.typicode.com/
+    const postsURL = "https://jsonplaceholder.typicode.com/posts"; //100개
+    const usersURL = "https://jsonplaceholder.typicode.com/users"; //10개
+
+    const postUrl = "https://jsonplaceholder.typicode.com/posts/1";
+
+    async function getData(_id){
+        try{
+            const { data : { id, userId, title, body} } = await axios.get(`${postsURL}/${_id}`);
+            console.log(id);
+            console.log(userId);
+            console.log(title);
+            console.log(body);
+
+            const {data : {email, name, username}} = await axios.get(`${usersURL}/${_id}`);
+            console.log(email);
+            console.log(name);
+            console.log(username);
+
+        } catch(err) {
+            console.log(err);
+        }
+    }
+    getData(2);
+
+    //영화진흥위원회 API 연동하여 데이터 가져오기(일별 오피스 박스의 집계는 어제까지만 데이터를 가져올 수 있음)
+    const movieUrl = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt=20120101";
+
+    async function getMovieData(){
+        try {
+            const {data} = await axios.get(`${movieUrl}`)
+            console.log(data);
+        } catch(err) {
+            console.log(err);
+        }
+    }
+    getMovieData();
+    
+    //변수선언으로 어제 날짜(Date() 객체로부터 받아옴)를 선언하여 어제 박스오피스 리스트를 추출(movieUrl의 데이터값 중 20120101 => 어제 날짜로 교체하여 호출할 것~!)
+
+
+
+
+
+
+
+
+</script>

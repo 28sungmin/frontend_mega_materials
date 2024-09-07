@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+.tit {
+  color: red;
+}
+
+.title {
+  background-color: #0af;
+  color: #fff;
+}
+
+.str_bg {
+  width: 300px;
+  height: 200px;
+  background-size: cover;
+  background-position: 50% 50%;
+}

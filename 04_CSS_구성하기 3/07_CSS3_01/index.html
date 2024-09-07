@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_CSS3_01</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <h2>경계선(border) 처리</h2>
+    <p>border-radius : 20px; 
+        => 좌상단, 우상단, 우하단, 좌하단 모두 동일하게 모서리 둥글게 처리하겠다는 의미</p>
+
+    <div class="radius_01"></div>    
+    <div class="radius_02"></div> 
+
+    <p>border-radius: 10px 20px 30px 40px; 박스 모서리 좌상단으로부터 시계방향으로 각 모서리 둥글게를 지정</p>
+    <div class="radius_03"></div>
+
+    <p>border-radius: 10px 40px; 좌상단(우하단) 우상단(좌하단) 각각 대각선으로 마주보고 있는 값이 동일한 경우</p>
+    <div class="radius_04"></div>
+
+    <p>border-radius: 10px 20px 30px; 좌상단 우상단(좌하단) 우하단</p>
+    <div class="radius_05"></div>
+
+    <p>1/4원 구성시</p>
+    <div class="quarter_radius"></div>
+
+    <p>1/2원 구성시</p>
+    <div class="half_radius"></div>
+
+    <p>타원 구성시</p>
+    <div class="ellipse_radius"></div>
+
+    <p>캡슐형태 구성시</p>
+    <div class="capsule_radius"></div>
+
+    <p>불규칙한 원의 형태를 구성시</p>
+    <div class="unbalanced_radius"></div>
+
+    <h2>[공간에 대한 그림자 부여] box-shadow: x-offset값 y-offset값 스츠레드(경계선의 번짐정도) 색상; => multifly 브렌드 효과 적용</h2>
+    <div class="shadow-space-rect"></div>
+    <div class="shadow-space-circle"></div>
+    <div class="neomorphism_box">
+        <div></div>
+    </div>
+
+    <h2>Gradient 적용하기</h2>
+    <h4>선형 그라디언트</h4>
+    <div class="gr_linear"></div>
+
+    <h4>원형 그라디언트</h4>
+    <div class="gr_radial1"></div>
+    <div class="gr_radial2"></div>
+
+
+    <h2>여러가지 배경 이미지를 하나의 공간에 부여시</h2>
+    <div class="multi_bg"></div>
+
+    <h2 style="color: red;">확장형(맞춤복) VS 축소형(기성복)</h2>
+    <h3>[확장형 박스 공간] box-sizing : content-box; (미설정시 기본값)</h3>
+    <h3>[축소형 박스 공간] box-sizing : border-box;</h3>
+
+    <div class="content-box">
+        <div>content-box</div>
+    </div>
+    <div class="border-box">
+        <div>border-box</div>
+    </div>
+
+    <h2>[텍스트 그림자 부여하기] text-shadow: x-offset값 y-offset값 스츠레드(경계선의 번짐정도) 색상;</h2>
+    <div class="text-shadow">
+        <h2>TEXT SHADOW</h2>
+    </div>
+
+    <h2>[게시판의 글이 길어서 한줄에 담을 수 없을 때 - text-oveflow] ...으로 종료시켜야할 때</h2>
+    <div class="text-overflow-space">
+        <h3>2024년 신년회를 개최합니다. 일시: 2024년 2월 5일</h3>
+    </div>
+
+    <h2>단어에 대한 공간의 통제</h2>
+    <div class="word-space-01">
+        <p>laksdjhhfkahsdfhjkahsdlfhklasdklfasdnjklkfjalsdfaklsjdkfjajsdklfjljaklsdjfkjaksdfaklsdjfklkasdjfj11111111111</p>
+    </div>
+    <div class="word-space-02">
+        <p>나라말이 중국과 달라 나라말이 중국과 달라 나라말이 중국과 달라 나라말이 중국과 달라 나라말이 중국과 달라 나라말이 중국과 달라 </p>
+    </div>
+
+    <h2>[word-spacing: 단어 사이의 간격을 조정 / letter-spacing: 글자사이의 간격을 조정]</h2>
+    <p>-2px 미만으로 조정하지 말 것</p>
+    <div class="word_space">
+        <p>Special Dishes in Today</p>
+    </div>
+    <div class="letter_space">
+        <p>Special Dishes in Today</p>
+    </div>
+
+    <h2>[white-space] 부모의 공간 개념상 접근 가능한 영역 지정</h2>
+    <pre>
+        가나다라
+    </pre>
+    <div class="white_space">
+        <p class="default">화이트 스페이스 기본값 화이트 스페이스 기본값</p>
+        <hr />
+        <p class="nowrap">화이트 스페이스 nowrap 화이트 스페이스 nowrap</p>
+        <hr />
+        <p class="pre">
+            화이트 스페이스 pre 
+                화이트 스페이스 pre
+        </p>
+    </div>
+
+    <hr />
+    <h2>transform(변형) : 회전(rotate), 크기(scale), 이동(translate), 비틀기(skew)</h2>
+
+    <h3>회전</h3>
+    <div class="tr_rotate_01">2D에서 회전</div>
+    <div class="tr_rotate_02">X 축을 기준으로 회전</div>
+
+    <h3>크기조정</h3>
+    <div class="tr_scale">크기조정</div>
+
+    <h3>이동</h3>
+    <div class="tr_tanslate_01"></div>
+
+    <h4>로그인 팝업창 구성하기(브라우저 기준으로 중앙에 배치)</h4>
+    <!-- <div class="popup">
+        <div class="inputLine">
+            <label for="userid">아이디</label>
+            <input type="text" id="userid" />
+        </div>
+        <div class="inputLine">
+            <label for="userpw">패스워드</label>
+            <input type="text" id="userpw" />
+        </div>
+        <div class="inputBtn">
+            <button>로그인</button>
+        </div>
+    </div> -->
+
+    <div class="cont_up">
+        <h2>New Interior</h2>
+    </div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+    <input type="text">
+
+    
+</body>
+</html>

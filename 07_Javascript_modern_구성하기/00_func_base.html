@@ -1,0 +1,34 @@
+
+
+<script>
+    //함수는 기억이다.
+    //여행이라는 주제
+
+    function memories(trip){ //trip은 매개변수(지역변수)
+        console.log("메모리라는 함수 실행");
+        console.log(trip);
+    }
+//   console.log(trip);
+    memories("여행");
+
+    const product = function(pd){
+        console.log(`${pd}가 장바구니에 담겼습니다.`);
+        return `${pd} 담겼다.`;
+    }
+    const newItem = product("향수");  //함수를 실행하면서 리턴받은 값은 "향수 담겼다.""
+    console.log(product);
+    console.log(newItem);
+</script>
+
+<div id="insertHtml"></div>
+
+<script>
+function htmlParagraph(className, context){
+    return `<h1 class=${className}>새로운 문단 : ${context}</h1>`;
+}
+const newHtml = htmlParagraph("안재욱", "오늘의 레시피");
+console.log(newHtml);
+document.querySelector("#insertHtml").innerHTML = newHtml;
+
+</script>
+

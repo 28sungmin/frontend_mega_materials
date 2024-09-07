@@ -1,0 +1,212 @@
+@charset "utf-8";
+
+/* 전체 선택자 */
+/* *{color: orange;} */
+
+/* 태그 선택자 */
+/* h3{color: blueviolet;} */
+
+/* 클래스 선택자 */
+.class_selector{
+    background-color: #f90;
+}
+.hit{
+    color: #00f;
+}
+.select_ice{
+    color: mintcream;
+}
+.num_1{
+    color: red;
+}
+.슈팅{
+    color:chartreuse;
+}
+.스타{
+    background-color: #ccc;
+}
+
+/* 아이디 선택자 */
+#txt_id{font-size: 20px;}
+#id_2{color: darkorange;}
+#car{background-color: #faf;}
+
+/* 자식선택자 */
+.menu > li{
+    background-color: #ffa;
+}
+.menu > li > a{
+    background-color: #aff;
+}
+.menu > li > ul > li > a{
+    background-color: #ddd;
+}
+/* 자손선택자 */
+.menu a.detail{
+    color:#fff;
+}
+
+/* 인접선택자 */
+.cur_page + li{
+    background-color: #faa;
+}
+.cur_page + li + li{
+    background-color: #afa;
+}
+.cur_page + li + li + li{
+    background-color: #a0f;
+}
+.cur_page + li + li + li > a{
+    color: #fff;
+}
+.target_page + li{
+    border: 2px solid #f00;
+}
+
+/* 내림 형제 선택자 */
+.current ~ .partner{
+    background-color: #aaf;
+}
+
+/* 복수(병렬) 선택자 */
+.several_selector p, .several_selector h5{
+    font-size: 24px;
+}
+.several_selector p, h5{
+    background-color: #faa;
+}
+.several_selector p, .target_lang{
+    color: #09f;
+}
+
+/* 가상 공간 선택자 */
+.virtual_space::before{
+    content: '맛있는 ';
+}
+.virtual_space::after{
+    content: ' : 마라탕';
+}
+
+/* 마우스 오버 관련 선택자 */
+.change_bg{
+    width: 240px;
+    height: 240px;
+    background-color: #ff7;
+    transition: background-color 0.5s;
+}
+.change_bg:hover{
+    background-color: #f77;
+}
+
+.com_menu > li > a{
+    color: #777;
+    text-decoration: none;
+}
+.com_menu > li > a:hover{
+    color: #f00;
+    border-bottom: 1px solid #f00;
+}
+
+/* 링크 관련 가상 행동 선택자 */
+.a_focus{
+    color: red;
+}
+.a_focus:focus{
+    color: orange
+}
+/* 웹접근성 차원에서 작성 요구됨 */
+.a_active:active{
+    color:red;
+}
+
+/* <> 각괄호
+() 소괄호
+{} 중괄호
+[] 대괄호 */
+
+
+/* 속성(attribute) 선택자 */
+.attr_selector1 [type]{
+    background-color: #ffc;
+}
+.attr_selector1 [type="password"]{
+    border: 2px solid #f0f;
+}
+.attr_selector1 [type^="em"]{
+    height: 40px;
+}
+.attr_selector1 [type$="xt"]{
+    border-radius: 8px;
+}
+.attr_selector1 [type*="ss"]{
+    background-color: #00f;
+    color:#fff;
+}
+
+.attr_selector2 p[class^="des"]{
+    color: #f70;
+}
+.attr_selector2 p[class*="des"]{
+    background-color: #fcf;
+}
+.attr_selector2 p[class$="et"]{
+    font-size: 24px;
+}
+
+/* 수도 선택자 */
+.nth_selector li:nth-child(2){
+    color: red;
+}
+.nth_selector li:first-child{
+    background-color: #cff;
+}
+.nth_selector li:last-child{
+    background-color: #fcf;
+}
+
+.nth_selector li:nth-of-type(3){
+    color: green;
+}
+.nth_selector li:first-of-type{
+    border-top: 4px solid blue;
+}
+.nth_selector li:last-of-type{
+    border-bottom: 4px solid red;
+}
+
+/* 종속선택자 */
+div.contain_selector1{
+    background-color: #faf;
+}
+div.contain_selector1 p[class^="my"]{
+    color: #fff;
+}
+
+/* Section-2의 색상을 red 변경 */
+/* div.contain_ex div#space{color:red;} */
+/* div.contain_ex div.place{color:red;} */
+div.contain_ex div#space.place{color: red;}
+
+
+/* CSS 선택자의 명시도 */
+#css_score #score{color: #f00;}
+#css_score .level{color:orange;}
+#css_score p{color:blue;}
+
+#section .txt_cont{
+    background-color: #f99;
+}
+div#section .part p{
+    background-color: #f70;
+}
+div .part #txt_test{
+    background-color: #7af;
+}
+/* 110, 112, 111 */
+
+
+/* 반응형에서 ! important를 작성하면 원하는 스타일로 조정 불가 -> 명시도 계산법에 의해 조정하는 것이 필요 */
+
+
+
+

@@ -1,0 +1,166 @@
+<script>
+    console.log([0,1,2,3,4,5,6].concat(7,8,9));
+    console.log([0,1,2,3,4,5,6].concat({name:"홍당무"}));
+    console.log([0,1,2,3,4,5,6].map(function(x){return x * 2}));
+    console.log([0,1,2,3,4,5,6].map(x => x * 2));
+    //map() 내장함수는 최초의 인덱스로부터 인자값을 받아서 하나씩 출력하는 과정에서 실행문 내부 수식의 결과값을 배열 데이터로 반환(for문과 동일한 형태로 결과를 출력)
+
+    console.log([0,1,2,3,4,5,6].filter(function(x){return x % 2 == 0}));
+    console.log([0,1,2,3,4,5,6].filter(x => x % 2 == 0));
+
+    //filter() 내장함수는 최초의 인덱스로부터 인자값을 받아서 조건에 부합하는 인자만을 배열 데이터로 반환(if문과 동일한 형태로 결과를 출력)
+
+    console.log([0,1,2,3,4,5,6].filter(() => false)); //[] => 데이터를 초기화시켜야할 경우
+    console.log([0,1,2,3,4,5,6].filter(() => true)); //[0, 1, 2, 3, 4, 5, 6]
+
+    //#2. map() 내장함수
+    //실습. map() 내장함수를 활용하여 기존 배열 데이터로부터 결과값을 제곱근의 값으로 출력하시오.
+    const number1 = [1,2,3,4,5,6,7,8,9,10];
+    console.log(number1.map(x => x * x));
+
+    //실습. tel 의 속성값인 번호의 좌측에 '010-'라는 추가 문자열을 포함하여 배열로 받아오기. 최종결과는 기존의 user1 으로부터 tel이라는 key명의 데이터들이 '010-'이 붙은 상태로만 출력["010-2222-3333", "010-2233-3344", ...]
+    const user1 = [
+        {name: "홍길영", age:25, kor:95, eng: 80, tel:"2222-3333"},
+        {name: "홍길일", age:35, kor:45, eng: 78, tel:"2233-3344"},
+        {name: "홍길이", age:16, kor:78, eng: 60, tel:"1122-2233"},
+        {name: "홍길삼", age:42, kor:90, eng: 35, tel:"2255-3366"},
+        {name: "홍길사", age:17, kor:82, eng: 56, tel:"4466-5577"},
+        {name: "홍길오", age:37, kor:87, eng: 94, tel:"3223-2332"},
+        {name: "홍길육", age:32, kor:76, eng: 68, tel:"1221-1331"},
+    ];
+
+    // tel 정보만 출력 ["010-2222-3333", "010-2233-3344", ...]
+    const user1_tel_arr = user1.map(v => `010-${v.tel}`);
+    console.log(user1_tel_arr); //['010-2222-3333', '010-2233-3344', '010-1122-2233', '010-2255-3366', '010-4466-5577', '010-3223-2332', '010-1221-1331']
+
+    console.log(user1);
+
+    /* tel 변경 후 전체 출력 
+        [
+            {name: "홍길영", age:25, kor:95, eng: 80, tel:"010-2222-3333"}, 
+            {name: "홍길일", age:35, kor:45, eng: 78, tel:"010-2233-3344"},
+            ...
+        ]
+    */
+    const user1_modify_tel = user1.map(v => {
+        v.tel = `010-${v.tel}`;
+        return v;
+    });
+    console.log(user1_modify_tel);
+
+    //실습. user1의 배열 데이터에 새로운 객체인 total (kor의 데이터 + eng의 데이터)을 추가한다.
+    const sumScore_add = user1.map(v => {
+        v.total = v.kor + v.eng;
+        return v;
+    })
+    console.log(sumScore_add);
+
+    //#3. filter() 내장함수
+    const num = [2,8,7,17,12,6,9,11];
+    //위의 숫자중에서 3의 배수만을 필터링한다면
+    const thirdTimes = num.filter(v => v % 3 == 0);
+    console.log(thirdTimes); //[12, 6, 9]
+
+    const user2 = [
+        {name: "홍길영", age:25, kor:95, eng: 80, tel:"2222-3333"},
+        {name: "홍길일", age:35, kor:45, eng: 78, tel:"2233-3344"},
+        {name: "홍길이", age:16, kor:78, eng: 60, tel:"1122-2233"},
+        {name: "홍길삼", age:42, kor:90, eng: 35, tel:"2255-3366"},
+        {name: "홍길사", age:17, kor:82, eng: 56, tel:"4466-5577"},
+        {name: "홍길오", age:37, kor:87, eng: 94, tel:"3223-2332"},
+        {name: "홍길육", age:32, kor:76, eng: 68, tel:"1221-1331"},
+    ];
+    //실습1. kor 점수가 80미만인 학생만 filter() 내장함수를 활용하여 배열 데이터로 추출하시오.
+    const korUnder80 = user2.filter(v => v.kor < 80);
+    console.log(korUnder80);
+
+    //실습2. kor 점수가 80이상이고, eng 점수가 80이상인 학생만 filter() 내장함수를 활용하여 배열 데이터로 추출하시오.
+    const subjectOver80 = user2.filter(v => v.kor >= 80 && v.eng >= 80);
+    console.log(subjectOver80);
+
+    //실습3. 각 과목의 점수가 80점 이하의 과락이 없고, 총점이 160점 이상인 합격자만 추출
+    const certUsers = user2.filter(v => 
+        v.kor > 80 &&
+        v.eng > 80 &&
+        v.kor + v.eng >= 160
+    );
+    console.log(certUsers);
+
+    //실습4. 각 과목의 점수가 80점 미만의 과락이 있거나, 총점이 160점 미만인 불합격자만 추출
+    const failUser = user2.filter(v => 
+        v.kor < 80 ||
+        v.eng < 80 ||
+        v.kor + v.eng < 160
+    );
+    console.log(failUser);
+
+</script>
+
+<h3>Array.from() 메서드 : 배열이 아닌 일반적인 객체를 배열 데이터로 변환시킨다.</h3>
+<div class="member1">
+    <p>송강호</p>
+    <p>주지훈</p>
+    <p>류승룡</p>
+</div>
+<script>
+    const member_01 = document.querySelectorAll(".member1 p");
+    console.log(member_01); //NodeList(3) [p, p, p]
+
+    const member_01_array = Array.from(member_01);
+    console.log(member_01_array); //[p, p, p]
+
+    const member_01_name = member_01_array.map(v => v.textContent);
+    console.log(member_01_name);
+</script>
+
+<div class="wrap"></div>
+<script>
+    const $wrap = document.querySelector(".wrap");
+    const box_data = [
+        {tit: "타이틀1", cont: "내용1"},
+        {tit: "타이틀2", cont: "내용2"},
+        {tit: "타이틀3", cont: "내용3"},
+    ]
+    const boxes = box_data.map(v => {
+        return `
+            <div>
+                <h3>${v.tit}</h3>
+                <p>${v.cont}</p>
+            </div>
+        `
+    });
+    console.log(boxes);
+    $wrap.innerHTML = box_data.map(v => {
+        return `
+            <div>
+                <h3>${v.tit}</h3>
+                <p>${v.cont}</p>
+            </div>
+        `
+    });
+
+
+</script>
+<h3>배열에 관한 다양한</h3>
+<script>
+    //Array.of() 메서드 : 전달받은 인수값을 배열화시킴
+    const myTripItem = Array.of("여행가방", "비상금", "여행자보험", "워킹화");
+    console.log(myTripItem); //['여행가방', '비상금', '여행자보험', '워킹화']
+
+    //Array.find() 메서드 : 제공된 테스트 함수를 충족하는 첫번째 원소를 반환
+    const myScore = [72, 83, 68, 57, 59];
+    let faultScore = myScore.find(v => v < 50);
+    console.log(faultScore); //57(없다면 undefined)
+    
+    //Array.findIndex() 메서드 : 조건과 일치하는 첫번째 원소의 인덱스번호를 추출
+    let faultIndex = myScore.findIndex(v => v < 50);
+    console.log(faultIndex); //3(없다면 -1)
+
+    //Array.some() 메서드 : 배열 데이터 중에서 조건과 일치하는 것이 있다면 루프를 중지하고 true를 반환
+    let arraySome = myScore.some(v => v > 80);
+    console.log(arraySome); //true
+
+    //Array.every() 메서드 : 배열 데이터의 모든 원소(실데이터)가 조건이 일치하면 루프를 중지하고 true를 반환
+    let arrayEvery = myScore.every(v => v >= 50);
+    console.log(arrayEvery); //true
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LocalStorage</title>
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/register.css" />
+  </head>
+  <body>
+    <header>
+      <div class="top">
+        <div class="logo"><h3>Storage</h3></div>
+        <ul>
+          <li class="registerLink"><a href="./register.html">회원가입</a></li>
+          <li class="loginLink"><a href="./login.html">로그인</a></li>
+          <li class="idTxt"><p id="userid_space">{userid_space}</p></li>
+          <li class="logoutLink"><a href="">로그아웃</a></li>
+        </ul>
+      </div>
+    </header>
+    <section>
+      <h2>Register Page</h2>
+      <div id="form">
+        <div id="register_form">
+          <div class="input_line">
+            <label for="">아이디</label>
+            <input type="text" id="userid" required />
+          </div>
+          <div class="input_line">
+            <label for="">패스워드</label>
+            <input type="password" id="userpw" required />
+          </div>
+          <div class="input_line">
+            <label for="">이메일</label>
+            <input type="email" id="useremail" required />
+          </div>
+          <div class="input_btn">
+            <button>회원가입</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+
+  <script src="./js/index.js"></script>
+  <script src="./js/register.js"></script>
+</html>
